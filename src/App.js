@@ -1,38 +1,40 @@
 import React from 'react';
-import Landing from './Landing';
-import Game from './Game';
-import CreateADeck from './CreateADeck';
-import EditADeck from './EditADeck';
-import Admin from './Admin';
-import PlayerInfo from './PlayerInfo';
-import EmptyPage from './EmptyPage';
-import CreateGame from './CreateGame';
-import PublicGames from './PublicGames';
-import HowToPlay from './HowToPlay';
+// import Landing from './Landing';
+// import Game from './Game';
+// import CreateADeck from './CreateADeck';
+// import EditADeck from './EditADeck';
+// import Admin from './Admin';
+// import PlayerInfo from './PlayerInfo';
+// import EmptyPage from './EmptyPage';
+// import CreateGame from './CreateGame';
+// import PublicGames from './PublicGames';
+// import HowToPlay from './HowToPlay';
+import LandingPage from './components/LandingPage';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 
 class App extends React.Component {
-  componentDidMount() {
-    // initialize analytics
-    if (process.env.NODE_ENV === 'production') {
-      this.initializeReactGA();
-    }
-  }
+  // componentDidMount() {
+  //   // initialize analytics
+  //   if (process.env.NODE_ENV === 'production') {
+  //     this.initializeReactGA();
+  //   }
+  // }
 
-  initializeReactGA = () => {
-    ReactGA.initialize('UA-171045081-1');
-    ReactGA.pageview('/');
-  };
+  // initializeReactGA = () => {
+  //   ReactGA.initialize('UA-171045081-1');
+  //   ReactGA.pageview('/');
+  // };
 
   render() {
     return (
       <Router>
         <Switch>
           <Route exact path='/'>
-            <Landing />
+            <LandingPage />
           </Route>
-          <Route path='/g/:roomId'>
+          {/* <Route path='/g/:roomId'>
             <Game reactGA={ReactGA} />
           </Route>
           <Route path='/create-deck'>
@@ -64,7 +66,7 @@ class App extends React.Component {
           </Route>
           <Route>
             <EmptyPage />
-          </Route>
+          </Route> */}
         </Switch>
       </Router>
     );
