@@ -9,9 +9,11 @@ import React from 'react';
 // import CreateGame from './CreateGame';
 // import PublicGames from './PublicGames';
 // import HowToPlay from './HowToPlay';
-import LandingPage from './components/LandingPage';
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import LandingPage from './components/LandingPage';
+import ChatComponent from './components/ChatComponent';
+
 // import ReactGA from 'react-ga';
 
 class App extends React.Component {
@@ -33,6 +35,9 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/'>
             <LandingPage />
+          </Route>
+          <Route exact path='/chat'>
+            <ChatComponent />
           </Route>
           {/* <Route path='/g/:roomId'>
             <Game reactGA={ReactGA} />
