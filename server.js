@@ -25,18 +25,18 @@
 //   console.log('Server Started!');
 // });
 
-const express = require('express');
-const http = require('http');
-const app = express();
-const server = http.createServer(app);
-const socket = require('socket.io');
-const io = socket(server);
+// const express = require('express');
+// const app = express();
+// const socket = require('socket.io');
+// const http = require('http');
+// const server = http.createServer(app);
+// const io = socket(server);
 
-io.on('connection', (socket) => {
-  socket.emit('your id', socket.id);
-  socket.on('send message', (body) => {
-    io.emit('message', body);
-  });
-});
+// io.on('connection', (socket) => {
+//   socket.emit('your id', socket.id);
+//   socket.on('send message', (body) => {
+//     io.emit('message', body);
+//   });
+// });
 
-server.listen(8000, () => console.log('server is running on port 8000'));
+// server.listen(8000, () => console.log('server is running on port 8000'));

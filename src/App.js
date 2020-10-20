@@ -16,7 +16,7 @@ import ChatComponent from './components/ChatComponent';
 
 // import ReactGA from 'react-ga';
 
-class App extends React.Component {
+const App = () => {
   // componentDidMount() {
   //   // initialize analytics
   //   if (process.env.NODE_ENV === 'production') {
@@ -29,17 +29,16 @@ class App extends React.Component {
   //   ReactGA.pageview('/');
   // };
 
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route exact path='/'>
-            <LandingPage />
-          </Route>
-          <Route exact path='/chat'>
-            <ChatComponent />
-          </Route>
-          {/* <Route path='/g/:roomId'>
+  return (
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <LandingPage />
+        </Route>
+        <Route exact path='/chat'>
+          <ChatComponent />
+        </Route>
+        {/* <Route path='/g/:roomId'>
             <Game reactGA={ReactGA} />
           </Route>
           <Route path='/create-deck'>
@@ -72,10 +71,9 @@ class App extends React.Component {
           <Route>
             <EmptyPage />
           </Route> */}
-        </Switch>
-      </Router>
-    );
-  }
-}
+      </Switch>
+    </Router>
+  );
+};
 
 export default App;
