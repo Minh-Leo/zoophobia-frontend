@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import Landing from './Landing';
 // import Game from './Game';
 // import CreateADeck from './CreateADeck';
@@ -9,7 +9,13 @@ import React, { useEffect } from 'react';
 // import CreateGame from './CreateGame';
 // import PublicGames from './PublicGames';
 // import HowToPlay from './HowToPlay';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
+
+import history from './history';
+import socket from './socketConfig';
+// import GameMenu from './components/GameMenu';
+// import CreateGame from './components/CreateGame';
+// import JoinGame from './components/JoinGame';
 
 import LandingPage from './components/LandingPage';
 import ChatComponent from './components/ChatComponent';
@@ -23,14 +29,34 @@ const App = () => {
   //     this.initializeReactGA();
   //   }
   // }
-
   // initializeReactGA = () => {
   //   ReactGA.initialize('UA-171045081-1');
   //   ReactGA.pageview('/');
   // };
 
+  const [gameState, setGameState] = useState({
+    _id: '',
+    isOpen: false,
+    players: [],
+  });
+
+  useEffect(() => {
+    socket.on('update-game', (game) => {
+      console.log(game);
+      setGameState(game);
+    });
+
+    return () => {
+      socket.removeAllListeners();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (gameState._id !== '') history.push(`/game/${gameState._id}`);
+  }, [gameState._id]);
+
   return (
-    <Router>
+    <Router history={history}>
       <Switch>
         <Route exact path='/'>
           <LandingPage />
@@ -38,6 +64,14 @@ const App = () => {
         <Route exact path='/chat'>
           <ChatComponent />
         </Route>
+        <Route exact path='/' component={GameMenu} />
+        <Route path='/game/create' component={CreateGame} />
+        <Route path='/game/join' component={JoinGame} />
+        {/* <Route
+          path='/game/:gameID'
+          render={(props) => <TypeRacer {...props} gameState={gameState} />}
+        /> */}
+
         {/* <Route path='/g/:roomId'>
             <Game reactGA={ReactGA} />
           </Route>
