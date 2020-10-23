@@ -6,18 +6,19 @@ import React, { useEffect, useState } from 'react';
 // import Admin from './Admin';
 // import PlayerInfo from './PlayerInfo';
 // import EmptyPage from './EmptyPage';
-// import CreateGame from './CreateGame';
 // import PublicGames from './PublicGames';
 // import HowToPlay from './HowToPlay';
 import { Router, Route, Switch } from 'react-router-dom';
 
 import history from './history';
 import socket from './socketConfig';
-// import GameMenu from './components/GameMenu';
-// import CreateGame from './components/CreateGame';
-// import JoinGame from './components/JoinGame';
+
+import GameMenu from './components/GameMenu';
+import CreateGame from './components/CreateGame';
+import JoinGame from './components/JoinGame';
 
 import LandingPage from './components/LandingPage';
+import Zoophobia from './components/Zoophobia';
 import ChatComponent from './components/ChatComponent';
 
 // import ReactGA from 'react-ga';
@@ -58,19 +59,17 @@ const App = () => {
   return (
     <Router history={history}>
       <Switch>
-        <Route exact path='/'>
-          <LandingPage />
-        </Route>
+        {/* <Route exact path='/' component={LandingPage} /> */}
         <Route exact path='/chat'>
           <ChatComponent />
         </Route>
         <Route exact path='/' component={GameMenu} />
         <Route path='/game/create' component={CreateGame} />
         <Route path='/game/join' component={JoinGame} />
-        {/* <Route
+        <Route
           path='/game/:gameID'
-          render={(props) => <TypeRacer {...props} gameState={gameState} />}
-        /> */}
+          render={(props) => <Zoophobia {...props} gameState={gameState} />}
+        />
 
         {/* <Route path='/g/:roomId'>
             <Game reactGA={ReactGA} />
