@@ -1,14 +1,11 @@
 import React from 'react';
-import Table from './Table';
-import { Cards } from '../testCard';
+import GameMenu from './GameMenu';
 
 function LandingPage() {
-  console.log(Cards);
-
   return (
     <div>
       <h1>Landing Page works</h1>
-      <Table cardsArr={Cards}></Table>
+      <GameMenu />
     </div>
   );
 }

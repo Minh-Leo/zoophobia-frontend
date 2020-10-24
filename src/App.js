@@ -13,11 +13,11 @@ import { Router, Route, Switch } from 'react-router-dom';
 import history from './history';
 import socket from './socketConfig';
 
-import GameMenu from './components/GameMenu';
 import CreateGame from './components/CreateGame';
 import JoinGame from './components/JoinGame';
 
 import LandingPage from './components/LandingPage';
+import HowToPlayPage from './components/HowToPlayPage';
 import Zoophobia from './components/Zoophobia';
 import ChatComponent from './components/ChatComponent';
 
@@ -59,11 +59,11 @@ const App = () => {
   return (
     <Router history={history}>
       <Switch>
-        {/* <Route exact path='/' component={LandingPage} /> */}
+        <Route exact path='/' component={LandingPage} />
+        <Route exact path='/how-to-play' component={HowToPlayPage} />
         <Route exact path='/chat'>
           <ChatComponent />
         </Route>
-        <Route exact path='/' component={GameMenu} />
         <Route path='/game/create' component={CreateGame} />
         <Route path='/game/join' component={JoinGame} />
         <Route
@@ -74,18 +74,8 @@ const App = () => {
         {/* <Route path='/g/:roomId'>
             <Game reactGA={ReactGA} />
           </Route>
-          <Route path='/create-deck'>
-            <CreateADeck
-              title='Cards of Personality: Create Deck'
-              reactGA={ReactGA}
-            />
-          </Route>
-          <Route path='/edit-deck'>
-            <EditADeck
-              title='Cards of Personality: Edit Deck'
-              reactGA={ReactGA}
-            />
-          </Route>
+         
+         
           <Route path='/admin'>
             <Admin />
           </Route>
@@ -101,9 +91,7 @@ const App = () => {
           <Route exact path='/how-to-play'>
             <HowToPlay isPage />
           </Route>
-          <Route>
-            <EmptyPage />
-          </Route> */}
+          */}
       </Switch>
     </Router>
   );

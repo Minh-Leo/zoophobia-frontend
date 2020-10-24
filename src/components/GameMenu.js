@@ -9,6 +9,13 @@ const GameMenu = (props) => {
       <h1>Welcome to game</h1>
       <button
         type='button'
+        onClick={() => history.push('/how-to-play')}
+        className='btn btn-primary btn-lg mr-3'
+      >
+        How to play
+      </button>
+      <button
+        type='button'
         onClick={() => history.push('/game/create')}
         className='btn btn-primary btn-lg mr-3'
       >
