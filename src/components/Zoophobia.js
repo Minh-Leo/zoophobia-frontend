@@ -14,17 +14,17 @@ const findPlayer = (players) =>
 
 function Zoophobia({ gameState }) {
   console.log(Cards);
-  const { _id, players, words, isOpen, isOver } = gameState;
+  const { _id, players, isOpen, isOver } = gameState;
   const player = findPlayer(players);
   if (_id === '') return <Redirect to='/' />;
 
+  // Start Round event emit
+
+  // End Round event emit
+
   return (
     <div className='text-center'>
-      {/* <ProgressBar
-        players={players}
-        player={player}
-        wordsLength={words.length}
-      />
+      {/* 
       <CountDown /> */}
       <StartBtn player={player} gameID={_id} />
       {isOpen ? <DisplayGameCode gameID={_id} /> : null}
