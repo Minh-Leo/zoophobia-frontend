@@ -10,7 +10,7 @@ const JoinGame = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(userInput);
+    // console.log(userInput);
     socket.emit('join-game', userInput);
   };
 

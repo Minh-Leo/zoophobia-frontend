@@ -43,7 +43,7 @@ const App = () => {
 
   useEffect(() => {
     socket.on('update-game', (game) => {
-      console.log(game);
+      // console.log(game);
       setGameState(game);
     });
 
