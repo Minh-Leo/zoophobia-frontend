@@ -23,7 +23,7 @@ function Zoophobia({ gameState }) {
   // End Round event emit
 
   return (
-    <div className='text-center'>
+    <div className='jumbotron text-center'>
       <CountDown />
       <StartBtn player={player} gameID={_id} />
       {isOpen ? <DisplayGameCode gameID={_id} /> : null}
