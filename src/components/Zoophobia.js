@@ -4,7 +4,7 @@ import socket from '../socketConfig';
 import styled from 'styled-components';
 
 import DisplayGameCode from './DisplayGameCode';
-
+import CountDown from './CountDown';
 import StartBtn from './StartBtn';
 import Table from './Table';
 import { Cards } from '../testCard';
@@ -24,8 +24,7 @@ function Zoophobia({ gameState }) {
 
   return (
     <div className='text-center'>
-      {/* 
-      <CountDown /> */}
+      <CountDown />
       <StartBtn player={player} gameID={_id} />
       {isOpen ? <DisplayGameCode gameID={_id} /> : null}
       {/* <ScoreBoard players={players} /> */}
