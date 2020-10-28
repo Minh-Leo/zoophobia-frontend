@@ -16,6 +16,7 @@ function Zoophobia({ gameState }) {
   console.log(Cards);
   const { _id, players, isOpen, isOver } = gameState;
   const player = findPlayer(players);
+  console.log(player.responseCards);
   if (_id === '') return <Redirect to='/' />;
 
   // Start Round event emit
