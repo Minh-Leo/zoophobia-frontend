@@ -11,15 +11,15 @@ const CardDiv = styled.div`
     background: white;
   }
 `;
-const CardTitle = styled.div`
+const CardTitle = styled.h2`
   color: white;
 `;
 
 function Card({ card }) {
   return (
     <CardDiv>
-      <CardTitle>{card.id}</CardTitle>
-      <h4>{card.content}</h4>
+      <CardTitle>{card.item}</CardTitle>
+      <p>{card.text}</p>
     </CardDiv>
   );
 }

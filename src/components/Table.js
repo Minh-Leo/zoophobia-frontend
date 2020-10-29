@@ -15,8 +15,8 @@ function Table({ cardsArr }) {
   // cardsArr
   return (
     <CardTable>
-      {cardsArr.map((card) => (
-        <Card key={card.id} card={card} />
+      {cardsArr.map((card, i) => (
+        <Card key={i} card={card} />
       ))}
     </CardTable>
   );

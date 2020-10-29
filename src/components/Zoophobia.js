@@ -7,13 +7,13 @@ import DisplayGameCode from './DisplayGameCode';
 import CountDown from './CountDown';
 import StartBtn from './StartBtn';
 import Table from './Table';
-import { Cards } from '../testCard';
+// import { Cards } from '../testCard';
 
 const findPlayer = (players) =>
   players.find((player) => player.socketID === socket.id);
 
 function Zoophobia({ gameState }) {
-  console.log(Cards);
+  // console.log(Cards);
   const { _id, players, isOpen, isOver } = gameState;
   const player = findPlayer(players);
   console.log(player.responseCards);
@@ -28,6 +28,7 @@ function Zoophobia({ gameState }) {
       <CountDown />
       <StartBtn player={player} gameID={_id} />
       {isOpen ? <DisplayGameCode gameID={_id} /> : null}
+      {!isOpen ? <Table cardsArr={player.responseCards} /> : null}
       {/* <ScoreBoard players={players} /> */}
     </div>
   );
