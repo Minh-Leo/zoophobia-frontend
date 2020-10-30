@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import PromptCard from './PromptCard';
 
 import styled from 'styled-components';
 
@@ -11,10 +12,11 @@ const CardTable = styled.div`
   flex-flow: row wrap;
 `;
 
-function Table({ cardsArr }) {
+function Table({ cardsArr, promptCard }) {
   // cardsArr
   return (
     <CardTable>
+      <PromptCard card={promptCard} />
       {cardsArr.map((card, i) => (
         <Card key={i} card={card} />
       ))}

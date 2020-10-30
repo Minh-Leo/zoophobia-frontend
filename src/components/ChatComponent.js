@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import socket from '../socketConfig';
 
-const ChatComponent = () => {
+const ChatComponent = ({ player }) => {
   const [yourID, setYourID] = useState();
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    socket.on('your id', (id) => {
-      setYourID(id);
-    });
+    // socket.on('your id', (id) => {
+    setYourID(player.socketID);
+    // });
 
     socket.on('message', (message) => {
-      console.log('here');
+      console.log('chat from id: ', player.socketID);
       receivedMessage(message);
     });
   }, []);
@@ -70,8 +70,8 @@ const ChatComponent = () => {
 
 const ChatBox = styled.div`
   display: flex;
-  height: 100vh;
-  width: 100%;
+  height: 90vh;
+  width: 400px;
   align-items: flex-end;
   flex-direction: column;
   background-color: #3c3c3c;
