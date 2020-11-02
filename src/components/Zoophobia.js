@@ -17,7 +17,7 @@ function Zoophobia({ gameState }) {
   // console.log(Cards);
   const { _id, players, promptCards, isOpen, isOver } = gameState;
   const player = findPlayer(players);
-  console.log(player.responseCards);
+  // console.log(player.responseCards);
   if (_id === '') return <Redirect to='/' />;
 
   // Start Round event emit
@@ -31,7 +31,12 @@ function Zoophobia({ gameState }) {
       {isOpen ? <DisplayGameCode gameID={_id} /> : null}
       {!isOpen ? (
         <GameStage>
-          <Table cardsArr={player.responseCards} promptCard={promptCards[0]} />
+          <Table
+            cardsArr={player.responseCards}
+            promptCard={promptCards[0]}
+            gameID={_id}
+            player={player}
+          />
           <ChatComponent player={player} />
         </GameStage>
       ) : null}
