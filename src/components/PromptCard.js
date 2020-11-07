@@ -2,24 +2,35 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardDiv = styled.div`
-  background: black;
+  // background: url('/media/promt1.png');
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  // background-position: center;
   width: 200px;
-  height: 300px;
+  // height: 300px;
   margin: 2em;
+  position: absolute;
+  top: 10%;
+  left: 40px;
+  z-index: 10;
 
   &:hover {
     background: white;
   }
 `;
-const CardTitle = styled.h2`
-  color: white;
+const FrontImg = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
-function PromptCard({ card }) {
+function PromptCard({ card, img }) {
   return (
     <CardDiv>
-      <CardTitle>{card.item}</CardTitle>
-      <p>{card.text}</p>
+      <FrontImg>
+        <img src={img} alt='' />
+      </FrontImg>
     </CardDiv>
   );
 }

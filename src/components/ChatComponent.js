@@ -71,34 +71,34 @@ const ChatComponent = ({ player }) => {
 const ChatBox = styled.div`
   display: flex;
   height: 90vh;
-  width: 400px;
+  width: 20vw;
   align-items: flex-end;
   flex-direction: column;
-  background-color: #3c3c3c;
 `;
 
 const MessagesContainer = styled.div`
+  width: 100%;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  height: 500px;
   max-height: 100%;
   overflow: auto;
-  width: 400px;
-  border: 1px solid #6c6c6c;
+  border: 15px solid #d3864a;
   border-radius: 10px;
   padding-bottom: 10px;
   margin-top: 25px;
+  background: #f9f5f0;
 `;
 
 const TextArea = styled.textarea`
-  width: 98%;
+  width: 100%;
   height: 100px;
   border-radius: 10px;
   margin-top: 10px;
   padding-left: 10px;
   padding-top: 10px;
   font-size: 17px;
-  background-color: transparent;
+  background: #f9f5f0;
   border: 1px solid #6c6c6c;
   outline: none;
   color: #6c6c6c;
@@ -124,7 +124,8 @@ const Button = styled.button`
 `;
 
 const Form = styled.form`
-  width: 400px;
+  width: 100%;
+  border: 15px solid #d34a88;
 `;
 
 const MyRow = styled.div`

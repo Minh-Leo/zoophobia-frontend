@@ -4,20 +4,42 @@ import socket from '../socketConfig';
 import styled from 'styled-components';
 
 const CardDiv = styled.div`
-  background: red;
-  width: 200px;
-  height: 300px;
-  margin: 2em;
+  // background: url('/media/resp1.png');
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // width: 100px;
+  // margin: 0.5em;
+
+  // copy part
+  margin: 0 -25px;
+  position: relative;
+  width: 100px;
+  &:after {
+    bottom: 0;
+    content: '';
+    left: -60px;
+    position: absolute;
+    right: -60px;
+    top: 0px;
+    z-index: 10;
+  }
+
+  // End copy
 
   &:hover {
-    background: white;
+    transform: scale(1.2);
+    border: 1px solid blue;
   }
 `;
-const CardTitle = styled.h2`
-  color: white;
+const FrontImg = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
-const Card = ({ card, onClick }) => {
+const Card = ({ card, img, onClick }) => {
   // const onClick = (e) => {
   //   e.preventDefault();
   //   // console.log(userInput);
@@ -26,8 +48,9 @@ const Card = ({ card, onClick }) => {
 
   return (
     <CardDiv onClick={() => onClick(card)}>
-      <CardTitle>{card.item}</CardTitle>
-      <p>{card.text}</p>
+      <FrontImg>
+        <img src={img} alt='' />
+      </FrontImg>
     </CardDiv>
   );
 };

@@ -21,6 +21,8 @@ import HowToPlayPage from './components/HowToPlayPage';
 import Zoophobia from './components/Zoophobia';
 import ChatComponent from './components/ChatComponent';
 
+// import './App.css';
+
 // import ReactGA from 'react-ga';
 
 const App = () => {
@@ -68,6 +70,10 @@ const App = () => {
         <Route path='/game/join' component={JoinGame} />
         <Route
           path='/game/:gameID'
+          render={(props) => <Zoophobia {...props} gameState={gameState} />}
+        />
+        <Route
+          path='/zoo'
           render={(props) => <Zoophobia {...props} gameState={gameState} />}
         />
 
