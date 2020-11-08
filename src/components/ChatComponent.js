@@ -70,10 +70,11 @@ const ChatComponent = ({ player }) => {
 
 const ChatBox = styled.div`
   display: flex;
+  width: 20%;
   height: 90vh;
-  width: 20vw;
   align-items: flex-end;
   flex-direction: column;
+  border: 2px dashed blue;
 `;
 
 const MessagesContainer = styled.div`

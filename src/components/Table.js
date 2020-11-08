@@ -15,36 +15,48 @@ function Table({ cardsArr, promptCard, gameID, player, players }) {
 
   // cardsArr
   return (
-    <CardTable className='container'>
+    <CardTable className='jumbotron-fluid'>
       <div className='row'>
         <PromptCard card={promptCard} img={'/media/promt2.png'} />
       </div>
-      <div className='row'>
-        <Trolley className='col-2 '>
-          <img className='align-self-end' src={'/media/trolley.png'} alt='' />
-        </Trolley>
-        <ChosenResponses className='col-10'>
-          {players.map((player, i) => {
-            console.log(player, i);
-            return player.currentChosenCard !== 0 ? (
-              <Card
-                key={i}
-                card={player.currentChosenCard[0]}
-                img={'/media/resp3.png'}
-                onClick={onClick}
-              />
-            ) : (
-              <CardPlaceholder />
-            );
-          })}
-        </ChosenResponses>
-      </div>
+      <TrolleyAndCards className='row'>
+        <div className='row' style={{ height: '30%' }}></div>
+        <div
+          className='row'
+          style={{ width: '100%', height: '70%', margin: 0 }}
+        >
+          <TrolleyContainer className='col-3'>
+            <Trolley>
+              <img src={'/media/trolley.png'} alt='' />
+            </Trolley>
+          </TrolleyContainer>
+          {/* <div > */}
+          <ChosenResponses className='col-9'>
+            {players.map((player, i) => {
+              console.log(player, i);
+              return player.currentChosenCard !== 0 ? (
+                <Card
+                  key={i}
+                  card={player.currentChosenCard[0]}
+                  img={'/media/resp3.png'}
+                  size={250}
+                  onClick={onClick}
+                />
+              ) : (
+                <CardPlaceholder />
+              );
+            })}
+          </ChosenResponses>
+        </div>
+        {/* </div> */}
+      </TrolleyAndCards>
       <RespCardsContainer className='row'>
         {cardsArr.map((card, i) => (
           <Card
             key={i}
             card={card}
-            img={'/media/resp12.png'}
+            img={'/media/resp5.png'}
+            size={150}
             onClick={onClick}
           />
         ))}
@@ -54,7 +66,7 @@ function Table({ cardsArr, promptCard, gameID, player, players }) {
 }
 
 const CardTable = styled.div`
-  // width: 80vw;
+  width: 80%;
   // height: 70vh;
 `;
 
@@ -63,21 +75,36 @@ const CardPlaceholder = styled.div`
   height: 300px;
   border: 2px dashed blue;
 `;
-const Trolley = styled.div`
-  width: 30%;
-  height: 700px;
-  display: flex;
-  border: 1px solid red;
-`;
-const ChosenResponses = styled.div`
+const TrolleyAndCards = styled.div`
   background: url('/media/supermarket-background.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 70%;
+  width: 100%;
+  margin: 0;
+`;
+const TrolleyContainer = styled.div`
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid blue;
+`;
+const Trolley = styled.div`
+  width: 80%;
+  align-self: flex-end;
+  border: 1px solid red;
+
+  img {
+    width: 100%;
+  }
+`;
+const ChosenResponses = styled.div`
+  width: 100%;
   height: 700px;
   border: 1px solid red;
   display: flex;
+  justify-content: center;
+  align-items: flex-end;
 `;
 const RespCardsContainer = styled.div`
   // width: 100%;
@@ -88,8 +115,8 @@ const RespCardsContainer = styled.div`
   border: 1px solid red;
 
   // copy part
-  bottom: 0;
   display: flex;
+  width: 100%;
   height: 150px;
   padding: 0 10px;
   justify-content: center;

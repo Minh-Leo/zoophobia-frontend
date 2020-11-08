@@ -1,5 +1,5 @@
 import React from 'react';
-import socket from '../socketConfig';
+// import socket from '../socketConfig';
 
 import styled from 'styled-components';
 
@@ -8,28 +8,22 @@ const CardDiv = styled.div`
   // background-size: contain;
   // background-repeat: no-repeat;
   // background-position: center;
-  // width: 100px;
+  // width: 150px;
   // margin: 0.5em;
 
   // copy part
   margin: 0 -25px;
   position: relative;
   width: 100px;
-  &:after {
-    bottom: 0;
-    content: '';
-    left: -60px;
-    position: absolute;
-    right: -60px;
-    top: 0px;
-    z-index: 10;
-  }
+  transition: 0.5s ease all;
 
   // End copy
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.5);
+    margin-top: -50px;
     border: 1px solid blue;
+    z-index: 10;
   }
 `;
 const FrontImg = styled.div`
@@ -39,7 +33,7 @@ const FrontImg = styled.div`
   }
 `;
 
-const Card = ({ card, img, onClick }) => {
+const Card = ({ card, img, size, onClick }) => {
   // const onClick = (e) => {
   //   e.preventDefault();
   //   // console.log(userInput);
@@ -47,7 +41,7 @@ const Card = ({ card, img, onClick }) => {
   // };
 
   return (
-    <CardDiv onClick={() => onClick(card)}>
+    <CardDiv style={{ width: `${size}px` }} onClick={() => onClick(card)}>
       <FrontImg>
         <img src={img} alt='' />
       </FrontImg>

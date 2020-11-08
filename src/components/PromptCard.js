@@ -6,11 +6,10 @@ const CardDiv = styled.div`
   // background-size: contain;
   // background-repeat: no-repeat;
   // background-position: center;
-  width: 200px;
   // height: 300px;
-  margin: 2em;
+  width: 280px;
   position: absolute;
-  top: 10%;
+  top: 20px;
   left: 40px;
   z-index: 10;
 

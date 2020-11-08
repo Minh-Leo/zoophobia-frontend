@@ -22,7 +22,6 @@ import Zoophobia from './components/Zoophobia';
 import ChatComponent from './components/ChatComponent';
 
 // import './App.css';
-
 // import ReactGA from 'react-ga';
 
 const App = () => {
@@ -57,6 +56,12 @@ const App = () => {
   useEffect(() => {
     if (gameState._id !== '') history.push(`/game/${gameState._id}`);
   }, [gameState._id]);
+
+  //   socket.emit('register', localstorage.getItem('gameUniqueId'));
+
+  // //somewhere, when game starts
+  // var randomlyGeneratedUID = Math.random().toString(36).substring(3,16) + +new Date;
+  // localStorage.setItem('gameUniqueId', randomlyGeneratedUID);
 
   return (
     <Router history={history}>
