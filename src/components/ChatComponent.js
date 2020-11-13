@@ -4,12 +4,14 @@ import socket from '../socketConfig';
 
 const ChatComponent = ({ player }) => {
   const [yourID, setYourID] = useState();
+  const [yourName, setYourName] = useState();
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
     // socket.on('your id', (id) => {
     setYourID(player.socketID);
+    setYourName(player.nickName);
     // });
 
     socket.on('message', (message) => {
@@ -27,6 +29,7 @@ const ChatComponent = ({ player }) => {
     const messageObject = {
       body: message,
       id: yourID,
+      player: yourName,
     };
     setMessage('');
     socket.emit('send message', messageObject);
@@ -43,14 +46,14 @@ const ChatComponent = ({ player }) => {
           if (message.id === yourID) {
             return (
               <MyRow key={index}>
-                <User>{message.id}</User>
+                <User>{message.player}</User>
                 <MyMessage>{message.body}</MyMessage>
               </MyRow>
             );
           }
           return (
             <PartnerRow key={index}>
-              <User>{message.id}</User>
+              <User>{message.player}</User>
               <PartnerMessage>{message.body}</PartnerMessage>
             </PartnerRow>
           );

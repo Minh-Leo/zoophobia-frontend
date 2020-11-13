@@ -7,18 +7,25 @@ import styled from 'styled-components';
 
 function Table({ cardsArr, promptCard, gameID, player, players }) {
   let playerData = { player, gameID };
+  let cardCzar = player.isCurrentPlayer;
+  console.log(cardCzar);
+
   const onClick = (card) => {
     // e.preventDefault();
     // console.log(card);
     socket.emit('card-chosen-by-player', { card, playerData });
+  };
+  const onFinalChosen = (card) => {
+    // socket.emit('card-chosen-by-player', { card, playerData });
   };
 
   // cardsArr
   return (
     <CardTable className='jumbotron-fluid'>
       <div className='row'>
-        <PromptCard card={promptCard} img={'/media/promt2.png'} />
+        <PromptCard card={promptCard} />
       </div>
+
       <TrolleyAndCards className='row'>
         <div className='row' style={{ height: '30%' }}></div>
         <div
@@ -35,13 +42,25 @@ function Table({ cardsArr, promptCard, gameID, player, players }) {
             {players.map((player, i) => {
               console.log(player, i);
               return player.currentChosenCard !== 0 ? (
-                <Card
-                  key={i}
-                  card={player.currentChosenCard[0]}
-                  img={'/media/resp3.png'}
-                  size={250}
-                  onClick={onClick}
-                />
+                <div>
+                  {/* {player.isCurrentPlayer ? (
+                    <button
+                      type='button'
+                      className='btn btn-primary'
+                      onClick={(card) => console.log(card.frontImg)}
+                    >
+                      Choose
+                    </button>
+                  ) : null} */}
+                  <Card
+                    key={i}
+                    card={player.currentChosenCard[0]}
+                    size={250}
+                    onClick={onFinalChosen}
+                    iscardCzar={cardCzar}
+                    isChosenCards={true}
+                  />
+                </div>
               ) : (
                 <CardPlaceholder />
               );
@@ -50,15 +69,10 @@ function Table({ cardsArr, promptCard, gameID, player, players }) {
         </div>
         {/* </div> */}
       </TrolleyAndCards>
+
       <RespCardsContainer className='row'>
         {cardsArr.map((card, i) => (
-          <Card
-            key={i}
-            card={card}
-            img={'/media/resp5.png'}
-            size={150}
-            onClick={onClick}
-          />
+          <Card key={i} card={card} size={150} onClick={onClick} />
         ))}
       </RespCardsContainer>
     </CardTable>

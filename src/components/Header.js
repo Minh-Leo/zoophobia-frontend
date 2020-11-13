@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-const Header = () => {
+const Header = ({ player }) => {
   useEffect(() => {}, []);
 
   return (
@@ -15,6 +15,12 @@ const Header = () => {
       </div>
 
       <nav className='col-3 navbar navbar-expand-lg navbar-light bg-light'>
+        <h3>
+          {' '}
+          {player.isCurrentPlayer
+            ? `${player.nickName} - your turn`
+            : `${player.nickName}`}
+        </h3>
         <div className='' id=''>
           <div className='navbar-nav'>
             <Link className='nav-item nav-link active' to='/'>

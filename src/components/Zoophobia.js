@@ -27,14 +27,14 @@ function Zoophobia({ gameState }) {
 
   return (
     <div className='jumbotron-fluid'>
-      <Header></Header>
+      <Header player={player}></Header>
       {/* Before game start */}
       {isOpen ? (
-        <>
+        <div className='text-center'>
           <CountDown />
           <StartBtn player={player} gameID={_id} />
           <DisplayGameCode gameID={_id} />
-        </>
+        </div>
       ) : null}
       {/* {isOpen ? <DisplayGameCode gameID={_id} /> : null} */}
       {/* After game start */}

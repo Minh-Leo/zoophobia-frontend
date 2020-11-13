@@ -24,11 +24,11 @@ const FrontImg = styled.div`
   }
 `;
 
-function PromptCard({ card, img }) {
+function PromptCard({ card }) {
   return (
     <CardDiv>
       <FrontImg>
-        <img src={img} alt='' />
+        <img src={`/media/${card.frontImg}.png`} alt='' />
       </FrontImg>
     </CardDiv>
   );
