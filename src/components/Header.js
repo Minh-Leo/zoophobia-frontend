@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // import socket from '../socketConfig';
@@ -15,12 +15,14 @@ const Header = ({ player }) => {
       </div>
 
       <nav className='col-3 navbar navbar-expand-lg navbar-light bg-light'>
-        <h3>
-          {' '}
-          {player.isCurrentPlayer
-            ? `${player.nickName} - your turn`
-            : `${player.nickName}`}
-        </h3>
+        {player ? (
+          <h3>
+            {' '}
+            {player.isCurrentPlayer
+              ? `${player.nickName} - your turn`
+              : `${player.nickName}`}
+          </h3>
+        ) : null}
         <div className='' id=''>
           <div className='navbar-nav'>
             <Link className='nav-item nav-link active' to='/'>

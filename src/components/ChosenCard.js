@@ -3,12 +3,28 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const Card = ({ card, size, onClick }) => {
+const ChosenCard = ({ card, size, onClick, iscardCzar }) => {
+  // const onClick = (e) => {
+  //   e.preventDefault();
+  //   // console.log(userInput);
+  //   socket.emit('card-chosen-by-player', card);
+  // };
+  // console.log(card);
+
   return (
-    <CardDiv style={{ width: `${size}px` }} onClick={() => onClick(card)}>
+    <CardDiv className='text-center' style={{ width: `${size}px` }}>
       <FrontImg>
         {card ? <img src={`/media/${card.frontImg}.png`} alt='' /> : null}
       </FrontImg>
+      {iscardCzar ? (
+        <button
+          type='button'
+          className='btn btn-primary'
+          onClick={() => onClick(card)}
+        >
+          Choose
+        </button>
+      ) : null}
     </CardDiv>
   );
 };
@@ -22,16 +38,13 @@ const CardDiv = styled.div`
   // margin: 0.5em;
 
   // copy part
-  margin: 0 -25px;
+  margin: 10px;
   position: relative;
-  width: 100px;
   transition: 0.5s ease all;
 
   // End copy
 
   &:hover {
-    transform: scale(2);
-    margin-top: -50px;
     z-index: 10;
   }
 `;
@@ -42,4 +55,4 @@ const FrontImg = styled.div`
   }
 `;
 
-export default Card;
+export default ChosenCard;

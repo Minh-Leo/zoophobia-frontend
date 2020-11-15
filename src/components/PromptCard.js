@@ -2,11 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardDiv = styled.div`
-  // background: url('/media/promt1.png');
-  // background-size: contain;
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // height: 300px;
   width: 280px;
   position: absolute;
   top: 20px;

@@ -19,6 +19,7 @@ import JoinGame from './components/JoinGame';
 import LandingPage from './components/LandingPage';
 import HowToPlayPage from './components/HowToPlayPage';
 import Zoophobia from './components/Zoophobia';
+import GameScore from './components/GameScore';
 import ChatComponent from './components/ChatComponent';
 
 // import './App.css';
@@ -44,7 +45,6 @@ const App = () => {
 
   useEffect(() => {
     socket.on('update-game', (game) => {
-      // console.log(game);
       setGameState(game);
     });
 
@@ -78,8 +78,8 @@ const App = () => {
           render={(props) => <Zoophobia {...props} gameState={gameState} />}
         />
         <Route
-          path='/zoo'
-          render={(props) => <Zoophobia {...props} gameState={gameState} />}
+          path='/gamescore'
+          render={() => <GameScore gameState={gameState} />}
         />
 
         {/* <Route path='/g/:roomId'>

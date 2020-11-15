@@ -29,6 +29,7 @@ const CreateGame = (props) => {
               onChange={onChange}
               placeholder='Enter nick name'
               className='form-control'
+              required
             />
           </div>
           <button className='btn btn-primary' type='submit'>

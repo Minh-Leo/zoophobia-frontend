@@ -1,22 +1,37 @@
 import React from 'react';
 import Card from './Card';
+import ChosenCard from './ChosenCard';
 import PromptCard from './PromptCard';
 import socket from '../socketConfig';
 
 import styled from 'styled-components';
 
-function Table({ cardsArr, promptCard, gameID, player, players }) {
+function Table({
+  cardsArr,
+  promptCard,
+  gameID,
+  player,
+  players,
+  isRoundFinished,
+}) {
   let playerData = { player, gameID };
   let cardCzar = player.isCurrentPlayer;
-  console.log(cardCzar);
 
   const onClick = (card) => {
     // e.preventDefault();
     // console.log(card);
     socket.emit('card-chosen-by-player', { card, playerData });
   };
+
   const onFinalChosen = (card) => {
     // socket.emit('card-chosen-by-player', { card, playerData });
+    // console.log(card);
+    socket.emit('final-chosen-card', { card, playerData });
+  };
+
+  const onRoundFinished = () => {
+    console.log('next round');
+    socket.emit('new-round', { playerData });
   };
 
   // cardsArr
@@ -24,6 +39,15 @@ function Table({ cardsArr, promptCard, gameID, player, players }) {
     <CardTable className='jumbotron-fluid'>
       <div className='row'>
         <PromptCard card={promptCard} />
+        {isRoundFinished && cardCzar ? (
+          <ButtonNextRound
+            type='button'
+            className='btn btn-secondary'
+            onClick={onRoundFinished}
+          >
+            Next Round
+          </ButtonNextRound>
+        ) : null}
       </div>
 
       <TrolleyAndCards className='row'>
@@ -40,29 +64,16 @@ function Table({ cardsArr, promptCard, gameID, player, players }) {
           {/* <div > */}
           <ChosenResponses className='col-9'>
             {players.map((player, i) => {
-              console.log(player, i);
-              return player.currentChosenCard !== 0 ? (
-                <div>
-                  {/* {player.isCurrentPlayer ? (
-                    <button
-                      type='button'
-                      className='btn btn-primary'
-                      onClick={(card) => console.log(card.frontImg)}
-                    >
-                      Choose
-                    </button>
-                  ) : null} */}
-                  <Card
-                    key={i}
-                    card={player.currentChosenCard[0]}
-                    size={250}
-                    onClick={onFinalChosen}
-                    iscardCzar={cardCzar}
-                    isChosenCards={true}
-                  />
-                </div>
+              return player.currentChosenCard.length !== 0 ? (
+                <ChosenCard
+                  key={i}
+                  card={player.currentChosenCard[0]}
+                  size={280}
+                  onClick={onFinalChosen}
+                  iscardCzar={cardCzar}
+                />
               ) : (
-                <CardPlaceholder />
+                <CardPlaceholder key={i} />
               );
             })}
           </ChosenResponses>
@@ -137,6 +148,12 @@ const RespCardsContainer = styled.div`
   position: relative;
   left: 0;
   bottom: 0;
+`;
+const ButtonNextRound = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 350px;
+  z-index: 10;
 `;
 
 export default Table;

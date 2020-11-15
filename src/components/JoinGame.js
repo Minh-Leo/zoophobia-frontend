@@ -29,6 +29,7 @@ const JoinGame = (props) => {
               onChange={onChange}
               placeholder='Enter Game ID'
               className='form-control'
+              required
             />
             {/*  */}
             <label htmlFor='nickName'>Enter Nick name</label>
@@ -39,6 +40,7 @@ const JoinGame = (props) => {
               onChange={onChange}
               placeholder='Enter nick name'
               className='form-control'
+              required
             />
           </div>
           <button className='btn btn-primary' type='submit'>

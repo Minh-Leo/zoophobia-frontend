@@ -16,10 +16,18 @@ const findPlayer = (players) =>
 
 function Zoophobia({ gameState }) {
   // console.log(Cards);
-  const { _id, players, promptCards, isOpen, isOver } = gameState;
+  const {
+    _id,
+    players,
+    promptCards,
+    isOpen,
+    isOver,
+    isRoundFinished,
+  } = gameState;
+
   const player = findPlayer(players);
-  // console.log(player.responseCards);
   if (_id === '') return <Redirect to='/' />;
+  if (isOver === true) return <Redirect to='/gamescore' />;
 
   // Start Round event emit
 
@@ -27,7 +35,8 @@ function Zoophobia({ gameState }) {
 
   return (
     <div className='jumbotron-fluid'>
-      <Header player={player}></Header>
+      <Header player={player} />
+      <span>{promptCards.length}</span>
       {/* Before game start */}
       {isOpen ? (
         <div className='text-center'>
@@ -36,9 +45,8 @@ function Zoophobia({ gameState }) {
           <DisplayGameCode gameID={_id} />
         </div>
       ) : null}
-      {/* {isOpen ? <DisplayGameCode gameID={_id} /> : null} */}
       {/* After game start */}
-      {!isOpen ? (
+      {!isOpen && !isOver ? (
         <GameStage>
           <Table
             cardsArr={player.responseCards}
@@ -46,6 +54,7 @@ function Zoophobia({ gameState }) {
             gameID={_id}
             player={player}
             players={players}
+            isRoundFinished={isRoundFinished}
           />
           <ChatComponent player={player} />
         </GameStage>

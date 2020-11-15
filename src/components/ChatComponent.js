@@ -77,7 +77,6 @@ const ChatBox = styled.div`
   height: 90vh;
   align-items: flex-end;
   flex-direction: column;
-  border: 2px dashed blue;
 `;
 
 const MessagesContainer = styled.div`
