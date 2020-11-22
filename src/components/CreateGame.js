@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import socket from '../socketConfig';
+import useSound from 'use-sound';
 
 const CreateGame = (props) => {
   const [nickName, setNickName] = useState('');
@@ -10,9 +11,13 @@ const CreateGame = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    clickSound();
     console.log(nickName);
     socket.emit('create-game', nickName);
   };
+
+  const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.25 });
+  const [clickSound] = useSound('/media/sfx/btnSound.mp3', { volume: 0.25 });
 
   return (
     <div className='row'>
@@ -32,7 +37,11 @@ const CreateGame = (props) => {
               required
             />
           </div>
-          <button className='btn btn-primary' type='submit'>
+          <button
+            className='btn btn-primary'
+            type='submit'
+            onMouseEnter={() => hoverSound()}
+          >
             Submit
           </button>
         </form>

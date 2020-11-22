@@ -16,12 +16,12 @@ const Header = ({ player }) => {
 
       <nav className='col-3 navbar navbar-expand-lg navbar-light bg-light'>
         {player ? (
-          <h3>
+          <PlayerStatus>
             {' '}
             {player.isCurrentPlayer
               ? `${player.nickName} - your turn`
               : `${player.nickName}`}
-          </h3>
+          </PlayerStatus>
         ) : null}
         <div className='' id=''>
           <div className='navbar-nav'>
@@ -44,6 +44,10 @@ const Header = ({ player }) => {
 const Logo = styled.img`
   position: relative;
   left: 50%;
+`;
+const PlayerStatus = styled.h4`
+  font-size: 16px;
+  color: blue;
 `;
 
 export default Header;

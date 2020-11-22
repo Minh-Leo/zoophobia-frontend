@@ -59,13 +59,12 @@ function Zoophobia({ gameState }) {
           <ChatComponent player={player} />
         </GameStage>
       ) : null}
-      {/* <ScoreBoard players={players} /> */}
     </div>
   );
 }
 
 const GameStage = styled.div`
-  width: 99vw;
+  // width: 97vw;
   height: 95vh;
   display: flex;
   justify-content: space-around;
