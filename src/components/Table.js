@@ -131,6 +131,7 @@ const Trolley = styled.div`
 const ChosenResponses = styled.div`
   width: 100%;
   height: 700px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: flex-end;

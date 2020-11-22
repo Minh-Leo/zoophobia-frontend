@@ -33,8 +33,9 @@ const CardDiv = styled.div`
   position: relative;
   width: 100px;
   transition: 0.5s ease all;
-
   // End copy
+
+  animation: bounce cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
 
   &:hover {
     transform: scale(2);
@@ -43,6 +44,9 @@ const CardDiv = styled.div`
   }
 `;
 const FrontImg = styled.div`
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+    rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+
   img {
     width: 100%;
     height: 100%;
