@@ -3,7 +3,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const ChosenCard = ({ card, size, onClick, iscardCzar }) => {
+const ChosenCard = ({ nickName, card, size, onClick, iscardCzar }) => {
   // const onClick = (e) => {
   //   e.preventDefault();
   //   // console.log(userInput);
@@ -13,6 +13,7 @@ const ChosenCard = ({ card, size, onClick, iscardCzar }) => {
 
   return (
     <CardDiv className='text-center' style={{ width: `${size}px` }}>
+      <h4>{nickName}</h4>
       <FrontImg>
         {card ? <img src={`/media/${card.frontImg}.png`} alt='' /> : null}
       </FrontImg>

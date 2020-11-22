@@ -1,4 +1,6 @@
 import React from 'react';
+import useSound from 'use-sound';
+
 import Card from './Card';
 import ChosenCard from './ChosenCard';
 import PromptCard from './PromptCard';
@@ -17,15 +19,17 @@ function Table({
   let playerData = { player, gameID };
   let cardCzar = player.isCurrentPlayer;
 
+  // const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.25 });
+  const [cardFlip] = useSound('/media/sfx/cardFlip1.wav', { volume: 0.25 });
+
   const onClick = (card) => {
     // e.preventDefault();
     // console.log(card);
+    cardFlip();
     socket.emit('card-chosen-by-player', { card, playerData });
   };
 
   const onFinalChosen = (card) => {
-    // socket.emit('card-chosen-by-player', { card, playerData });
-    // console.log(card);
     socket.emit('final-chosen-card', { card, playerData });
   };
 
@@ -67,6 +71,7 @@ function Table({
               return player.currentChosenCard.length !== 0 ? (
                 <ChosenCard
                   key={i}
+                  nickName={player.nickName}
                   card={player.currentChosenCard[0]}
                   size={280}
                   onClick={onFinalChosen}
@@ -98,7 +103,7 @@ const CardTable = styled.div`
 const CardPlaceholder = styled.div`
   width: 200px;
   height: 300px;
-  border: 2px dashed blue;
+  border: 2px dotted var(--info);
 `;
 const TrolleyAndCards = styled.div`
   background: url('/media/supermarket-background.png');
@@ -112,12 +117,12 @@ const TrolleyContainer = styled.div`
   height: 700px;
   display: flex;
   justify-content: center;
-  border: 1px solid blue;
+  // border: 1px solid blue;
 `;
 const Trolley = styled.div`
-  width: 80%;
+  width: 70%;
   align-self: flex-end;
-  border: 1px solid red;
+  // border: 1px solid red;
 
   img {
     width: 100%;
@@ -126,10 +131,10 @@ const Trolley = styled.div`
 const ChosenResponses = styled.div`
   width: 100%;
   height: 700px;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  // border: 1px solid red;
 `;
 const RespCardsContainer = styled.div`
   // width: 100%;
@@ -137,7 +142,7 @@ const RespCardsContainer = styled.div`
   // display: flex;
   // background: transparent;
   // overflow: hidden;
-  border: 1px solid red;
+  // border: 1px solid red;
 
   // copy part
   display: flex;

@@ -1,11 +1,18 @@
 import React from 'react';
 // import socket from '../socketConfig';
+import useSound from 'use-sound';
 
 import styled from 'styled-components';
 
 const Card = ({ card, size, onClick }) => {
+  const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.1 });
+
   return (
-    <CardDiv style={{ width: `${size}px` }} onClick={() => onClick(card)}>
+    <CardDiv
+      style={{ width: `${size}px` }}
+      onClick={() => onClick(card)}
+      onMouseEnter={() => hoverSound()}
+    >
       <FrontImg>
         {card ? <img src={`/media/${card.frontImg}.png`} alt='' /> : null}
       </FrontImg>

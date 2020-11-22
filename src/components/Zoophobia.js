@@ -64,7 +64,7 @@ function Zoophobia({ gameState }) {
 }
 
 const GameStage = styled.div`
-  // width: 97vw;
+  width: 97vw;
   height: 95vh;
   display: flex;
   justify-content: space-around;
