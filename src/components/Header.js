@@ -9,12 +9,12 @@ const Header = ({ player }) => {
   useEffect(() => {}, []);
 
   return (
-    <div className='row'>
+    <div className='row mx-0'>
       <div className='col-9'>
         <Logo className='logo' src={`/media/logo.png`} alt='' />
       </div>
 
-      <nav className='col-3 navbar navbar-expand-lg navbar-light bg-light'>
+      <NavBar className='col-3 navbar navbar-expand-lg navbar-light bg-light'>
         {player ? (
           <PlayerStatus>
             {' '}
@@ -36,7 +36,7 @@ const Header = ({ player }) => {
             </Link>
           </div>
         </div>
-      </nav>
+      </NavBar>
     </div>
   );
 };
@@ -44,10 +44,16 @@ const Header = ({ player }) => {
 const Logo = styled.img`
   position: relative;
   left: 50%;
+  mix-blend-mode: overlay;
 `;
 const PlayerStatus = styled.h4`
-  font-size: 16px;
-  color: blue;
+  font-size: 20px;
+  color: var(--primary);
+`;
+const NavBar = styled.nav`
+  padding-right: 0;
+  height: 60px;
+  top: 16px;
 `;
 
 export default Header;

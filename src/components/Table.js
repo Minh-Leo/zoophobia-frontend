@@ -106,7 +106,7 @@ const CardPlaceholder = styled.div`
   border: 2px dotted var(--info);
 `;
 const TrolleyAndCards = styled.div`
-  background: url('/media/supermarket-background.png');
+  // background: url('/media/supermarket-background.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

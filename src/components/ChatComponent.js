@@ -74,9 +74,11 @@ const ChatComponent = ({ player }) => {
 const ChatBox = styled.div`
   display: flex;
   width: 20%;
-  height: 90vh;
   align-items: flex-end;
   flex-direction: column;
+  padding: 16px 8px;
+  background: var(--secondary);
+  border-radius: 10px;
 `;
 
 const MessagesContainer = styled.div`
@@ -86,11 +88,11 @@ const MessagesContainer = styled.div`
   flex-direction: column;
   max-height: 100%;
   overflow: auto;
-  border: 15px solid #d3864a;
+  // border: 15px solid #d3864a;
   border-radius: 10px;
   padding-bottom: 10px;
   margin-top: 25px;
-  background: #f9f5f0;
+  background: var(--light);
 `;
 
 const TextArea = styled.textarea`
@@ -101,10 +103,10 @@ const TextArea = styled.textarea`
   padding-left: 10px;
   padding-top: 10px;
   font-size: 17px;
-  background: #f9f5f0;
-  border: 1px solid #6c6c6c;
+  background: var(--light);
   outline: none;
-  color: #6c6c6c;
+  color: var(--info);
+  background-color: var(--dark);
   letter-spacing: 1px;
   line-height: 20px;
   ::placeholder {
@@ -113,12 +115,12 @@ const TextArea = styled.textarea`
 `;
 
 const Button = styled.button`
-  background-color: #fff;
+  background-color: var(--light);
   width: 100%;
   border: none;
   height: 50px;
   border-radius: 10px;
-  color: #46516e;
+  color: var(--warning);
   font-size: 17px;
 
   &:hover {
@@ -128,7 +130,6 @@ const Button = styled.button`
 
 const Form = styled.form`
   width: 100%;
-  border: 15px solid #d34a88;
 `;
 
 const MyRow = styled.div`
@@ -141,14 +142,14 @@ const MyRow = styled.div`
 const User = styled.div`
   width: 10%;
   font-size: 12px;
-  color: red;
+  color: var(--primary);
   overflow: hidden;
 `;
 
 const MyMessage = styled.div`
   width: 45%;
-  background-color: #fff;
-  color: #46516e;
+  background-color: var(--light);
+  color: var(--dark);
   padding: 10px;
   margin-right: 5px;
   text-align: center;
@@ -163,7 +164,7 @@ const PartnerRow = styled(MyRow)`
 const PartnerMessage = styled.div`
   width: 45%;
   background-color: transparent;
-  color: #6c6c6c;
+  color: var(--warning);
   border: 1px solid #6c6c6c;
   padding: 10px;
   margin-left: 5px;
