@@ -4,6 +4,7 @@ import useSound from 'use-sound';
 import Card from './Card';
 import ChosenCard from './ChosenCard';
 import PromptCard from './PromptCard';
+import GroceryItem from './GroceryItem';
 import socket from '../socketConfig';
 
 import styled from 'styled-components';
@@ -11,6 +12,7 @@ import styled from 'styled-components';
 function Table({
   cardsArr,
   promptCard,
+  promptNo,
   gameID,
   player,
   players,
@@ -49,7 +51,11 @@ function Table({
             className='btn btn-secondary'
             onClick={onRoundFinished}
           >
-            Next Round
+            {promptNo === 1
+              ? 'End Game'
+              : promptNo === 2
+              ? 'Final Round'
+              : 'Next Round'}
           </ButtonNextRound>
         ) : null}
       </div>
@@ -62,7 +68,14 @@ function Table({
         >
           <TrolleyContainer className='col-3'>
             <Trolley>
-              <img src={'/media/trolley.png'} alt='' />
+              <img src={'/media/basket.png'} alt='' />
+              {player.winningCards.length !== 0
+                ? player.winningCards.map((cards, i) => {
+                    return (
+                      <GroceryItem item={cards[0].item} position={i * 3} />
+                    );
+                  })
+                : null}
             </Trolley>
           </TrolleyContainer>
           {/* <div > */}
@@ -101,9 +114,10 @@ const CardTable = styled.div`
 `;
 
 const CardPlaceholder = styled.div`
-  width: 200px;
-  height: 300px;
-  border: 2px dotted var(--info);
+  width: 280px;
+  height: 350px;
+  margin: 10px;
+  border: 2px dashed var(--info);
 `;
 const TrolleyAndCards = styled.div`
   // background: url('/media/supermarket-background.png');
@@ -123,11 +137,13 @@ const Trolley = styled.div`
   width: 70%;
   align-self: flex-end;
   // border: 1px solid red;
+  position: relative;
 
   img {
     width: 100%;
   }
 `;
+
 const ChosenResponses = styled.div`
   width: 100%;
   height: 700px;

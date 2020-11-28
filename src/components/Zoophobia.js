@@ -51,6 +51,7 @@ function Zoophobia({ gameState }) {
           <Table
             cardsArr={player.responseCards}
             promptCard={promptCards[0]}
+            promptNo={promptCards.length}
             gameID={_id}
             player={player}
             players={players}

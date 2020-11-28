@@ -38,8 +38,8 @@ const CardDiv = styled.div`
   animation: bounce cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
 
   &:hover {
-    transform: scale(2);
-    margin-top: -50px;
+    transform: scale(2) translateY(-50px);
+    // margin-top: -50px;
     z-index: 10;
   }
 `;
