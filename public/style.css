@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Animals';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/media/font/Animals.ttf') format('truetype');
+}
+
 * {
   /* margin: 0;
   padding: 0; */

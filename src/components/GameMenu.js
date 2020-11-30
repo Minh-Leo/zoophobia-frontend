@@ -9,7 +9,6 @@ const GameMenu = (props) => {
 
   return (
     <div>
-      <h1>Welcome to game</h1>
       <button
         type='button'
         onClick={() => {

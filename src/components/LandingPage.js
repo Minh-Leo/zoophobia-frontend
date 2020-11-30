@@ -1,19 +1,30 @@
 import React from 'react';
-import Header from './Header';
+import styled from 'styled-components';
 
+import Header from './Header';
 import GameMenu from './GameMenu';
 
 function LandingPage() {
   return (
-    <div className='jumbotron-fluid'>
+    <Landing className='jumbotron-fluid'>
       <Header />
 
-      <div className=' text-center'>
-        <h1>Landing Page works</h1>
+      <div className='text-center'>
+        <h1>Welcome to game</h1>
         <GameMenu />
       </div>
-    </div>
+    </Landing>
   );
 }
+
+const Landing = styled.div`
+  & .text-center {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+`;
 
 export default LandingPage;

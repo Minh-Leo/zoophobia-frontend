@@ -10,11 +10,11 @@ const Header = ({ player }) => {
 
   return (
     <div className='row mx-0'>
-      <div className='col-9'>
+      <div className='col-8'>
         <Logo className='logo' src={`/media/logo.png`} alt='' />
       </div>
 
-      <NavBar className='col-3 navbar navbar-expand-lg navbar-light bg-light'>
+      <NavBar className='col-4 navbar navbar-expand-lg'>
         {player ? (
           <PlayerStatus>
             {' '}
@@ -44,16 +44,37 @@ const Header = ({ player }) => {
 const Logo = styled.img`
   position: relative;
   left: 50%;
-  mix-blend-mode: overlay;
 `;
 const PlayerStatus = styled.h4`
   font-size: 20px;
+  margin: 0 2em 0 0;
+  padding: 8px;
   color: var(--primary);
 `;
 const NavBar = styled.nav`
   padding-right: 0;
   height: 60px;
   top: 16px;
+  background: #292929bb;
+  border-radius: 15px 0 0 15px;
+
+  & .navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+  }
+
+  & a.nav-link {
+    font-family: 'Animals';
+    color: #66e4f4;
+    margin-right: 10px;
+    transition: ease 0.3s all;
+
+    &:hover {
+      color: #f9f5f0;
+      transform: scale(1.1) translateY(-2px);
+    }
+  }
 `;
 
 export default Header;
