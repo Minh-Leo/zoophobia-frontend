@@ -16,7 +16,7 @@ const GameMenu = (props) => {
           history.push('/how-to-play');
         }}
         onMouseEnter={() => hoverSound()}
-        className='btn btn-primary btn-lg mr-3'
+        className='btn btn-warning btn-lg mr-3'
       >
         How to play
       </button>
@@ -38,7 +38,7 @@ const GameMenu = (props) => {
           history.push('/game/join');
         }}
         onMouseEnter={() => hoverSound()}
-        className='btn btn-primary btn-lg'
+        className='btn btn-success btn-lg'
       >
         Join Game
       </button>

@@ -77,8 +77,10 @@ const ChatBox = styled.div`
   align-items: flex-end;
   flex-direction: column;
   padding: 16px 8px;
-  background: var(--secondary);
+  background: var(--warning);
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+    rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
 `;
 
 const MessagesContainer = styled.div`
@@ -142,19 +144,20 @@ const MyRow = styled.div`
 const User = styled.div`
   width: 10%;
   font-size: 12px;
-  color: var(--primary);
+  color: var(--dark);
   overflow: hidden;
 `;
 
 const MyMessage = styled.div`
   width: 45%;
   background-color: var(--light);
-  color: var(--dark);
+  color: var(--primary);
   padding: 10px;
   margin-right: 5px;
   text-align: center;
   border-top-right-radius: 10%;
   border-bottom-right-radius: 10%;
+  border: 1px solid var(--primary);
 `;
 
 const PartnerRow = styled(MyRow)`
@@ -163,9 +166,9 @@ const PartnerRow = styled(MyRow)`
 
 const PartnerMessage = styled.div`
   width: 45%;
-  background-color: transparent;
+  background-color: var(--gray);
   color: var(--warning);
-  border: 1px solid #6c6c6c;
+  border: 1px solid var(--warning);
   padding: 10px;
   margin-left: 5px;
   text-align: center;

@@ -71,7 +71,7 @@ const NavBar = styled.nav`
     transition: ease 0.3s all;
 
     &:hover {
-      color: #f9f5f0;
+      color: #d3864a;
       transform: scale(1.1) translateY(-2px);
     }
   }
