@@ -20,7 +20,7 @@ const ChosenCard = ({ nickName, card, size, onClick, iscardCzar }) => {
       {iscardCzar ? (
         <button
           type='button'
-          className='btn btn-sm btn-primary shadow'
+          className='btn btn-sm btn-primary shadow-1'
           onClick={() => onClick(card)}
         >
           Choose

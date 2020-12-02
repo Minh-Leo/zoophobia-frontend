@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import socket from '../socketConfig';
+import styled from 'styled-components';
 import useSound from 'use-sound';
 
+import { CornerTopLeft, CornerRight } from './Corner';
 import Header from './Header';
 
 const CreateGame = (props) => {
@@ -24,11 +26,10 @@ const CreateGame = (props) => {
   return (
     <>
       <Header />
-      <div className='row'>
-        <div className='col-sm'></div>
-        <div className='col-sm-8'>
-          <h1 className='text-center'>Create Game</h1>
-          <form onSubmit={onSubmit}>
+      <Page className=''>
+        <div className='col-md-12 text-center'>
+          <h1 className=''>Create Game</h1>
+          <form onSubmit={onSubmit} style={{ width: '50%' }}>
             <div className='form-group'>
               <label htmlFor='nickName'>Enter Nick name</label>
               <input
@@ -42,7 +43,7 @@ const CreateGame = (props) => {
               />
             </div>
             <button
-              className='btn btn-primary'
+              className='btn btn-warning'
               type='submit'
               onMouseEnter={() => hoverSound()}
             >
@@ -50,10 +51,23 @@ const CreateGame = (props) => {
             </button>
           </form>
         </div>
-        <div className='col-sm'></div>
-      </div>
+
+        <CornerTopLeft />
+        <CornerRight />
+      </Page>
     </>
   );
 };
 
+const Page = styled.div`
+  position: relative;
+
+  & .text-center {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 export default CreateGame;
