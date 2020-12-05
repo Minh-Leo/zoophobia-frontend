@@ -15,7 +15,7 @@ const ChatComponent = ({ player }) => {
     // });
 
     socket.on('message', (message) => {
-      console.log('chat from id: ', player.socketID);
+      // console.log('chat from id: ', player.socketID);
       receivedMessage(message);
     });
   }, []);

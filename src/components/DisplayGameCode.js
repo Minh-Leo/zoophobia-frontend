@@ -11,9 +11,8 @@ const DisplayGameCode = ({ gameID }) => {
   };
 
   return (
-    <div className='row my-3 text-center'>
-      <div className='col-sm'></div>
-      <div className='col-sm-8'>
+    <div className='row my-5 text-center'>
+      <div className='col-md-12'>
         <h4>Send this code to your friends to join</h4>
         <div className='input-group mb-3'>
           <input
@@ -25,7 +24,7 @@ const DisplayGameCode = ({ gameID }) => {
           />
           <div className='input-group-append'>
             <button
-              className='btn btn-outline-secondary'
+              className='btn btn-warning'
               type='button'
               onClick={copyToClipboard}
             >
@@ -37,9 +36,10 @@ const DisplayGameCode = ({ gameID }) => {
           <div className='alert alert-success'>
             Sucessfully Copied Game Code
           </div>
-        ) : null}
+        ) : (
+          <div className='alert alert-info'>Game Code is ready</div>
+        )}
       </div>
-      <div className='col-sm'></div>
     </div>
   );
 };

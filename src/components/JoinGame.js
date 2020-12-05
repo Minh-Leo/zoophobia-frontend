@@ -10,7 +10,10 @@ const JoinGame = (props) => {
   const [userInput, setUserInput] = useState({ gameID: '', nickName: '' });
 
   const onChange = (e) => {
-    setUserInput({ ...userInput, [e.target.name]: e.target.value });
+    setUserInput({
+      ...userInput,
+      [e.target.name]: e.target.value.toUpperCase(),
+    });
   };
 
   const onSubmit = (e) => {

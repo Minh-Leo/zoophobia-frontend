@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// import useSound from 'use-sound';
 
 // import socket from '../socketConfig';
 
 import styled from 'styled-components';
 
 const Header = ({ player }) => {
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
+  // const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.6 });
+  // const [clickSound] = useSound('/media/sfx/btnSound.mp3', { volume: 0.1 });
 
   return (
     <div className='row mx-0'>

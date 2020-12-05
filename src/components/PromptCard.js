@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardDiv = styled.div`
-  width: 280px;
+  width: 300px;
   position: absolute;
   top: 20px;
   left: 40px;

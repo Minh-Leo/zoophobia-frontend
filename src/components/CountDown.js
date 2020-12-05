@@ -17,7 +17,7 @@ const CountDown = () => {
 
   return (
     <>
-      <h1>{countDown}</h1>
+      <h1 style={{ color: '#fff', fontSize: '90px' }}>{countDown}</h1>
       <h3>{msg}</h3>
     </>
   );

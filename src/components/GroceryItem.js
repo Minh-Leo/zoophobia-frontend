@@ -12,6 +12,7 @@ const GroceryItem = ({ item, position }) => {
     position: absolute;
     bottom: 15px;
     left: ${10 * position}px;
+    z-index: -1;
   `;
 
   return <Item></Item>;

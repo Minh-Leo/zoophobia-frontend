@@ -72,7 +72,11 @@ function Table({
               {player.winningCards.length !== 0
                 ? player.winningCards.map((cards, i) => {
                     return (
-                      <GroceryItem item={cards[0].item} position={i * 3} />
+                      <GroceryItem
+                        key={i}
+                        item={cards[0].item}
+                        position={i * 3}
+                      />
                     );
                   })
                 : null}
@@ -164,7 +168,7 @@ const RespCardsContainer = styled.div`
   // copy part
   display: flex;
   width: 100%;
-  height: 150px;
+  height: 250px;
   padding: 0 10px;
   justify-content: center;
   position: relative;

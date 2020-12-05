@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import socket from '../socketConfig';
 import styled from 'styled-components';
@@ -9,13 +9,18 @@ import CountDown from './CountDown';
 import StartBtn from './StartBtn';
 import Table from './Table';
 import ChatComponent from './ChatComponent';
+import { CornerTopLeft, CornerRight } from './Corner';
+import CardMatchingScreen from './CardMatchingScreen';
+
 // import { Cards } from '../testCard';
 
 const findPlayer = (players) =>
   players.find((player) => player.socketID === socket.id);
 
 function Zoophobia({ gameState }) {
-  // console.log(Cards);
+  const [animation, setAnimation] = useState(false);
+  const [matchingCards, setMatchingCards] = useState([]);
+
   const {
     _id,
     players,
@@ -33,17 +38,35 @@ function Zoophobia({ gameState }) {
 
   // End Round event emit
 
+  const onContinue = () => {
+    setAnimation(false);
+  };
+
+  socket.on('animation-false', () => {
+    setAnimation(false);
+  });
+
+  socket.on('cards-pair', ({ nickName, card, promptCard }) => {
+    // console.log(nickName, card.backImg, promptCard.backImg);
+    setMatchingCards([nickName, card.backImg, promptCard.backImg]);
+    setAnimation(true);
+  });
+
   return (
     <div className='jumbotron-fluid'>
       <Header player={player} />
-      <span>{promptCards.length}</span>
+      {/* <span>{promptCards.length}</span> */}
       {/* Before game start */}
       {isOpen ? (
-        <div className='text-center'>
-          <CountDown />
-          <StartBtn player={player} gameID={_id} />
-          <DisplayGameCode gameID={_id} />
-        </div>
+        <>
+          <WaitingScreen>
+            <CountDown />
+            <StartBtn player={player} gameID={_id} />
+            <DisplayGameCode gameID={_id} />
+          </WaitingScreen>
+          <CornerTopLeft />
+          <CornerRight />
+        </>
       ) : null}
       {/* After game start */}
       {!isOpen && !isOver ? (
@@ -60,6 +83,17 @@ function Zoophobia({ gameState }) {
           <ChatComponent player={player} />
         </GameStage>
       ) : null}
+      {/* Card Matching animation */}
+      {/* {animation && Array.isArray(matchingCards) && matchingCards.length ? (
+        <CardMatchingScreen
+          nickName={matchingCards[0]}
+          backResp={matchingCards[1]}
+          backPrompt={matchingCards[2]}
+          onContinue={onContinue}
+          player={player}
+          gameID={_id}
+        />
+      ) : null} */}
     </div>
   );
 }
@@ -70,6 +104,17 @@ const GameStage = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+`;
+const WaitingScreen = styled.div`
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export default Zoophobia;
