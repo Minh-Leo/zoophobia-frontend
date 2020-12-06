@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 import socket from '../socketConfig';
 import styled from 'styled-components';
@@ -10,17 +10,11 @@ import StartBtn from './StartBtn';
 import Table from './Table';
 import ChatComponent from './ChatComponent';
 import { CornerTopLeft, CornerRight } from './Corner';
-import CardMatchingScreen from './CardMatchingScreen';
-
-// import { Cards } from '../testCard';
 
 const findPlayer = (players) =>
   players.find((player) => player.socketID === socket.id);
 
 function Zoophobia({ gameState }) {
-  const [animation, setAnimation] = useState(false);
-  const [matchingCards, setMatchingCards] = useState([]);
-
   const {
     _id,
     players,
@@ -28,6 +22,8 @@ function Zoophobia({ gameState }) {
     isOpen,
     isOver,
     isRoundFinished,
+    animationMatching,
+    animationMatchingCards,
   } = gameState;
 
   const player = findPlayer(players);
@@ -35,27 +31,11 @@ function Zoophobia({ gameState }) {
   if (isOver === true) return <Redirect to='/gamescore' />;
 
   // Start Round event emit
-
   // End Round event emit
-
-  const onContinue = () => {
-    setAnimation(false);
-  };
-
-  socket.on('animation-false', () => {
-    setAnimation(false);
-  });
-
-  socket.on('cards-pair', ({ nickName, card, promptCard }) => {
-    // console.log(nickName, card.backImg, promptCard.backImg);
-    setMatchingCards([nickName, card.backImg, promptCard.backImg]);
-    setAnimation(true);
-  });
 
   return (
     <div className='jumbotron-fluid'>
       <Header player={player} />
-      {/* <span>{promptCards.length}</span> */}
       {/* Before game start */}
       {isOpen ? (
         <>
@@ -79,21 +59,12 @@ function Zoophobia({ gameState }) {
             player={player}
             players={players}
             isRoundFinished={isRoundFinished}
+            animationMatching={animationMatching}
+            animationMatchingCards={animationMatchingCards}
           />
           <ChatComponent player={player} />
         </GameStage>
       ) : null}
-      {/* Card Matching animation */}
-      {/* {animation && Array.isArray(matchingCards) && matchingCards.length ? (
-        <CardMatchingScreen
-          nickName={matchingCards[0]}
-          backResp={matchingCards[1]}
-          backPrompt={matchingCards[2]}
-          onContinue={onContinue}
-          player={player}
-          gameID={_id}
-        />
-      ) : null} */}
     </div>
   );
 }

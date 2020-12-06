@@ -3,6 +3,7 @@ import socket from '../socketConfig';
 import styled from 'styled-components';
 
 import Header from './Header';
+import { CornerTopLeft, CornerRight } from './Corner';
 
 const findPlayer = (players) =>
   players.find((player) => player.socketID === socket.id);
@@ -13,37 +14,60 @@ function GameScore({ gameState }) {
   const player = findPlayer(players);
 
   return (
-    <div className='jumbotron-fluid'>
-      <Header player={player}></Header>
+    <>
+      <Page>
+        <Header player={player}></Header>
 
-      <div className=' text-center'>
-        <h1>game score page</h1>
-
-        {players.map((player, i) => (
-          <div key={i} className='card' style={{ width: '18rem' }}>
-            {/* <img className='card-img-top' src='...' alt='Card cap' /> */}
-            <div className='card-body'>
-              <h5 className='card-title'>{player.nickName}</h5>
-              <p className='card-text'>more info...</p>
+        <h1 className='text-center white m-5'>GAME SCORE</h1>
+        <PlayersScore className=''>
+          {players.map((player, i) => (
+            <div key={i} className='card m-4' style={{ width: '18rem' }}>
+              {/* <img className='card-img-top' src='...' alt='Card cap' /> */}
+              <div
+                className='card-body'
+                style={{
+                  color: 'var(--primary)',
+                  background: 'var(--warning)',
+                }}
+              >
+                <h3 className='card-title'>Player: {player.nickName}</h3>
+                <p className='card-text'>more info...</p>
+              </div>
+              <ul className='list-group list-group-flush'>
+                <li className='list-group-item'>
+                  Total points: <strong> {player.points}</strong>
+                </li>
+                <li className='list-group-item'>
+                  Total matching combinations: {player.winningCards.length}
+                </li>
+                <li className='list-group-item'>
+                  Total unmatched combinations: {player.unmatchCards.length}
+                </li>
+              </ul>
+              <div className='card-body'>
+                <button className='card-link'>Yayyy</button>
+              </div>
             </div>
-            <ul className='list-group list-group-flush'>
-              <li className='list-group-item'>Total points: {player.points}</li>
-              <li className='list-group-item'>
-                Total matching combination: {player.winningCards.length}
-              </li>
-              <li className='list-group-item'>
-                Total unmatch combination: {player.unmatchCards.length}
-              </li>
-            </ul>
-            <div className='card-body'>
-              <button className='card-link'>Card link</button>
-              <button className='card-link'>Another link</button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+          ))}
+        </PlayersScore>
+        <CornerTopLeft />
+        <CornerRight />
+      </Page>
+    </>
   );
 }
+
+const Page = styled.div`
+  position: relative;
+`;
+
+const PlayersScore = styled.div`
+  height: 40vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`;
 
 export default GameScore;

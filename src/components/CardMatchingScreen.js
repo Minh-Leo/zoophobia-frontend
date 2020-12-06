@@ -1,67 +1,66 @@
 import React from 'react';
-import socket from '../socketConfig';
 // import useSound from 'use-sound';
 
 import styled from 'styled-components';
 
 const CardMatchingScreen = ({
-  nickName,
-  backResp,
-  backPrompt,
-  onContinue,
-  player,
   gameID,
+  cardCzar,
+  animationMatching,
+  animationMatchingCards,
+  onRoundFinished,
 }) => {
-  // const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.1 });
-
-  let matched = false;
-  if (backResp.replace('resp-', '') === backPrompt.replace('prompt-', '')) {
+  let matched;
+  if (
+    animationMatchingCards[1].replace('resp-', '') ===
+    animationMatchingCards[2].replace('prompt-', '')
+  ) {
     matched = true;
   } else {
     matched = false;
   }
 
-  let playerData = { player, gameID };
-  const onRoundFinished = () => {
-    console.log('next round');
-    // socket.emit('remove-matching-screen', gameID);
-    socket.emit('new-round', { playerData });
-  };
-
   return (
-    <ModalScreen>
-      {nickName !== null ? <h1 style={{ color: '#fff' }}>{nickName}</h1> : null}
+    <ModalScreen className='text-center'>
+      {animationMatchingCards[0] !== '' ? (
+        <h1 style={{ color: '#fff' }}>{animationMatchingCards[0]}'s card</h1>
+      ) : null}
       <div className='flex-horizontal'>
         <CardDiv className='text-center'>
           <BackImg>
-            {backResp !== null ? (
-              <img src={`/media/${backPrompt}.png`} alt='' />
+            {animationMatchingCards[2] !== '' ? (
+              <img src={`/media/${animationMatchingCards[2]}.png`} alt='' />
             ) : null}
           </BackImg>
         </CardDiv>
         <CardDiv className='text-center'>
           <BackImg>
-            {backResp !== null ? (
-              <img src={`/media/${backResp}.png`} alt='' />
+            {animationMatchingCards[1] !== '' ? (
+              <img src={`/media/${animationMatchingCards[1]}.png`} alt='' />
             ) : null}
           </BackImg>
         </CardDiv>
       </div>
       {matched ? (
-        <Message>{nickName} have 1 point</Message>
+        <Message>
+          Hooray, we have a matching pair, {animationMatchingCards[0]} got 1
+          point into their basket
+        </Message>
       ) : (
-        <Message>{nickName} don't have point</Message>
+        <Message>
+          Oops, cards item are not matching, {animationMatchingCards[0]} don't
+          have point, next time then!
+        </Message>
       )}
-      <button
-        type='button'
-        onClick={() => {
-          onContinue();
-          onRoundFinished();
-        }}
-        className='btn btn-warning btn-lg mr-3 shadow-1'
-      >
-        Continue to next round
-      </button>
+      {cardCzar ? (
+        <button
+          type='button'
+          onClick={onRoundFinished}
+          className='btn btn-warning btn-lg mt-3 shadow-1'
+        >
+          Continue to next round
+        </button>
+      ) : null}
     </ModalScreen>
   );
 };

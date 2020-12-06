@@ -11,7 +11,7 @@ const GroceryItem = ({ item, position }) => {
     background: no-repeat center/contain url('/media/SVG/${item}.svg');
     position: absolute;
     bottom: 15px;
-    left: ${10 * position}px;
+    left: ${12 * position}px;
     z-index: -1;
   `;
 

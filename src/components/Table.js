@@ -1,13 +1,13 @@
 import React from 'react';
 import useSound from 'use-sound';
+import socket from '../socketConfig';
+import styled from 'styled-components';
 
 import Card from './Card';
 import ChosenCard from './ChosenCard';
 import PromptCard from './PromptCard';
 import GroceryItem from './GroceryItem';
-import socket from '../socketConfig';
-
-import styled from 'styled-components';
+import CardMatchingScreen from './CardMatchingScreen';
 
 function Table({
   cardsArr,
@@ -17,6 +17,8 @@ function Table({
   player,
   players,
   isRoundFinished,
+  animationMatching,
+  animationMatchingCards,
 }) {
   let playerData = { player, gameID };
   let cardCzar = player.isCurrentPlayer;
@@ -25,8 +27,6 @@ function Table({
   const [cardFlip] = useSound('/media/sfx/cardFlip1.wav', { volume: 0.25 });
 
   const onClick = (card) => {
-    // e.preventDefault();
-    // console.log(card);
     cardFlip();
     socket.emit('card-chosen-by-player', { card, playerData });
   };
@@ -36,11 +36,10 @@ function Table({
   };
 
   const onRoundFinished = () => {
-    console.log('next round');
+    // console.log('next round');
     socket.emit('new-round', { playerData });
   };
 
-  // cardsArr
   return (
     <CardTable className='jumbotron-fluid'>
       <div className='row'>
@@ -108,6 +107,17 @@ function Table({
           <Card key={i} card={card} size={150} onClick={onClick} />
         ))}
       </RespCardsContainer>
+
+      {/* Card Matching animation */}
+      {animationMatching ? (
+        <CardMatchingScreen
+          animationMatching={animationMatching}
+          animationMatchingCards={animationMatchingCards}
+          onRoundFinished={onRoundFinished}
+          cardCzar={cardCzar}
+          gameID={gameID}
+        />
+      ) : null}
     </CardTable>
   );
 }
