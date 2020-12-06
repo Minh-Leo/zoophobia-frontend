@@ -4,8 +4,8 @@ import useSound from 'use-sound';
 
 const GameMenu = (props) => {
   let history = useHistory();
-  const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.25 });
-  const [clickSound] = useSound('/media/sfx/btnSound.mp3', { volume: 0.15 });
+  const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.6 });
+  const [clickSound] = useSound('/media/sfx/btnSound.mp3', { volume: 0.1 });
 
   return (
     <div>
@@ -38,7 +38,7 @@ const GameMenu = (props) => {
           history.push('/game/join');
         }}
         onMouseEnter={() => hoverSound()}
-        className='btn btn-success btn-lg shadow-1'
+        className='btn btn-success btn-lg shadow-1 black'
       >
         Join Game
       </button>

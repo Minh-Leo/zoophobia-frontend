@@ -10,7 +10,7 @@ const CreateGame = (props) => {
   const [nickName, setNickName] = useState('');
 
   const onChange = (e) => {
-    setNickName(e.target.value);
+    setNickName(e.target.value.toUpperCase());
   };
 
   const onSubmit = (e) => {
