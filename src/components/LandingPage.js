@@ -11,8 +11,15 @@ function LandingPage() {
       <Header />
 
       <div className='text-center' style={{ marginTop: '5%' }}>
-        <h1 style={{ color: '#f9f5f0' }}>Welcome to </h1>
-        <BigLogo src={`/media/logo.png`} alt='' />
+        <h1
+          className='bouncing stroke'
+          style={{
+            fontSize: '4rem',
+          }}
+        >
+          Welcome to{' '}
+        </h1>
+        <BigLogo className='bouncing' src={`/media/logo.png`} alt='' />
         <GameMenu />
       </div>
 
@@ -38,8 +45,6 @@ const Landing = styled.div`
 const BigLogo = styled.img`
   width: 60vw;
   // max-height: 30vh;
-  // box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
-    rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
 `;
 
 export default LandingPage;

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const CardMatchingScreen = ({
   gameID,
+  promptNo,
   cardCzar,
   animationMatching,
   animationMatchingCards,
@@ -26,14 +27,14 @@ const CardMatchingScreen = ({
         <h1 style={{ color: '#fff' }}>{animationMatchingCards[0]}'s card</h1>
       ) : null}
       <div className='flex-horizontal'>
-        <CardDiv className='text-center'>
+        <CardDiv className='text-center bouncing'>
           <BackImg>
             {animationMatchingCards[2] !== '' ? (
               <img src={`/media/${animationMatchingCards[2]}.png`} alt='' />
             ) : null}
           </BackImg>
         </CardDiv>
-        <CardDiv className='text-center'>
+        <CardDiv className='text-center bouncing'>
           <BackImg>
             {animationMatchingCards[1] !== '' ? (
               <img src={`/media/${animationMatchingCards[1]}.png`} alt='' />
@@ -58,7 +59,12 @@ const CardMatchingScreen = ({
           onClick={onRoundFinished}
           className='btn btn-warning btn-lg mt-3 shadow-1'
         >
-          Continue to next round
+          Continue to{' '}
+          {promptNo === 1
+            ? 'Score Board'
+            : promptNo === 2
+            ? 'Final Round'
+            : `Round ${promptNo - 1}`}
         </button>
       ) : null}
     </ModalScreen>

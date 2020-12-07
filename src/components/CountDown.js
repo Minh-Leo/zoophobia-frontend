@@ -17,7 +17,9 @@ const CountDown = () => {
 
   return (
     <>
-      <h1 style={{ color: '#fff', fontSize: '100px' }}>{countDown}</h1>
+      <h1 className='stroke' style={{ fontSize: '150px' }}>
+        {countDown}
+      </h1>
       <h3>{msg}</h3>
     </>
   );

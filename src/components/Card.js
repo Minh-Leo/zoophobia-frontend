@@ -9,6 +9,7 @@ const Card = ({ card, size, onClick }) => {
 
   return (
     <CardDiv
+      className='bouncing'
       style={{ width: `${size}px` }}
       onClick={() => onClick(card)}
       onMouseEnter={() => hoverSound()}
@@ -21,29 +22,25 @@ const Card = ({ card, size, onClick }) => {
 };
 
 const CardDiv = styled.div`
-  // background: url('/media/resp1.png');
-  // background-size: contain;
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // width: 150px;
-  // margin: 0.5em;
-
-  // copy part
-  margin: 0 -25px;
+  margin: 0 -20px;
   position: relative;
   width: 100px;
-  transition: 0.5s ease all;
-  // End copy
+  transition: 0.3s ease all;
 
   animation: bounce cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
 
+  &:nth-child(odd) {
+    margin: -5px -20px;
+  }
+
   &:hover {
-    transform: scale(2) translateY(-50px);
+    transform: scale(2) translateY(-40px);
     // margin-top: -50px;
     z-index: 10;
   }
 `;
 const FrontImg = styled.div`
+  border: 1px dashed #292929;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
     rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
 

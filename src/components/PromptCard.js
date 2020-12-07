@@ -23,7 +23,7 @@ const FrontImg = styled.div`
 
 function PromptCard({ card }) {
   return (
-    <CardDiv>
+    <CardDiv className='bouncing'>
       <FrontImg>
         <img src={`/media/${card.frontImg}.png`} alt='' />
       </FrontImg>

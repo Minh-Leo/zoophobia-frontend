@@ -14,7 +14,9 @@ const Header = ({ player }) => {
   return (
     <div className='row mx-0'>
       <div className='col-8'>
-        <Logo className='logo' src={`/media/logo.png`} alt='' />
+        {window.location.pathname !== '/' ? (
+          <Logo className='logo' src={`/media/logo-sm.png`} alt='' />
+        ) : null}
       </div>
 
       <NavBar className='col-4 navbar navbar-expand-lg'>
@@ -57,7 +59,7 @@ const PlayerStatus = styled.h4`
 const NavBar = styled.nav`
   padding-right: 0;
   height: 60px;
-  top: 16px;
+  top: 36px;
   background: #292929bb;
   border-radius: 15px 0 0 15px;
 

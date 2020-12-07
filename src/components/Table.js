@@ -116,6 +116,7 @@ function Table({
           onRoundFinished={onRoundFinished}
           cardCzar={cardCzar}
           gameID={gameID}
+          promptNo={promptNo}
         />
       ) : null}
     </CardTable>
@@ -130,6 +131,7 @@ const CardTable = styled.div`
 const CardPlaceholder = styled.div`
   width: 280px;
   height: 350px;
+  background: #66e4f422;
   margin: 10px;
   border: 2px dashed var(--info);
 `;
