@@ -11,6 +11,8 @@ const CardMatchingScreen = ({
   animationMatchingCards,
   onRoundFinished,
 }) => {
+  // const [cardCheck] = useSound('/media/sfx/sfxmagic.wav', { volume: 0.25 });
+
   let matched;
   if (
     animationMatchingCards[1].replace('resp-', '') ===
@@ -20,6 +22,8 @@ const CardMatchingScreen = ({
   } else {
     matched = false;
   }
+
+  // cardCheck();
 
   return (
     <ModalScreen className='text-center'>

@@ -10,6 +10,7 @@ const Header = ({ player }) => {
   // useEffect(() => {}, []);
   // const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.6 });
   // const [clickSound] = useSound('/media/sfx/btnSound.mp3', { volume: 0.1 });
+  console.log(window.location.pathname);
 
   return (
     <div className='row mx-0'>
@@ -36,7 +37,7 @@ const Header = ({ player }) => {
             <Link className='nav-item nav-link' to='/how-to-play'>
               How To play?
             </Link>
-            <Link className='nav-item nav-link' to='#'>
+            <Link className='nav-item nav-link' to='/about'>
               About Us
             </Link>
           </div>

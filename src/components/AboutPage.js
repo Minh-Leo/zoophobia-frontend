@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { CornerTopLeft, CornerRight } from './Corner';
 import Header from './Header';
 
-const HowToPlayPage = () => {
+const AboutPage = () => {
   // const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.25 });
   // const [clickSound] = useSound('/media/sfx/btnSound.mp3', { volume: 0.15 });
 
@@ -16,12 +16,12 @@ const HowToPlayPage = () => {
         <div className='col-md-12 text-center'>
           <img
             className='bouncing'
-            src='/media/page/Howtoplay1_website.jpg'
+            src='/media/page/CreatorsNote_website.jpg'
             alt=''
           />
           <img
             className='bouncing'
-            src='/media/page/Howtoplay2_website.jpg'
+            src='/media/page/TheTeam_website.jpg'
             alt=''
           />
         </div>
@@ -52,4 +52,4 @@ const Page = styled.div`
   }
 `;
 
-export default HowToPlayPage;
+export default AboutPage;

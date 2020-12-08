@@ -22,6 +22,11 @@ export const CornerTopLeft = styled.div`
   position: fixed;
   top: -5px;
   left: -5px;
+  // transition: 0.4s ease all;
+  // // -webkit-animation: bounce 1.2s 1 forwards;
+  // // -moz-animation: bounce 1.2s 1 forwards;
+  // // -ms-animation: bounce 1.2s 1 forwards;
+  // animation: fadeIn 0.8s forwards;
 `;
 
 export const CornerRight = styled.div`
@@ -35,4 +40,9 @@ export const CornerRight = styled.div`
   position: fixed;
   bottom: -10px;
   right: -15px;
+  // transition: 0.4s ease all;
+  // // -webkit-animation: bounce 1.2s 1 forwards;
+  // // -moz-animation: bounce 1.2s 1 forwards;
+  // // -ms-animation: bounce 1.2s 1 forwards;
+  // animation: fadeIn 0.8s forwards;
 `;
