@@ -15,7 +15,7 @@ const Card = ({ card, size, onClick }) => {
       onMouseEnter={() => hoverSound()}
     >
       <FrontImg>
-        {card ? <img src={`/media/${card.frontImg}.png`} alt='' /> : null}
+        {card ? <img src={`/media/${card.frontImg}.jpg`} alt='' /> : null}
       </FrontImg>
     </CardDiv>
   );
@@ -24,7 +24,7 @@ const Card = ({ card, size, onClick }) => {
 const CardDiv = styled.div`
   margin: 0 -20px;
   position: relative;
-  width: 100px;
+  // width: 100px;
   transition: 0.3s ease all;
 
   animation: bounce cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
@@ -34,7 +34,7 @@ const CardDiv = styled.div`
   }
 
   &:hover {
-    transform: scale(2) translateY(-40px);
+    transform: scale(2.2) translateY(-40px);
     // margin-top: -50px;
     z-index: 10;
   }

@@ -30,14 +30,14 @@ const CardMatchingScreen = ({
         <CardDiv className='text-center bouncing'>
           <BackImg>
             {animationMatchingCards[2] !== '' ? (
-              <img src={`/media/${animationMatchingCards[2]}.png`} alt='' />
+              <img src={`/media/${animationMatchingCards[2]}.jpg`} alt='' />
             ) : null}
           </BackImg>
         </CardDiv>
         <CardDiv className='text-center bouncing'>
           <BackImg>
             {animationMatchingCards[1] !== '' ? (
-              <img src={`/media/${animationMatchingCards[1]}.png`} alt='' />
+              <img src={`/media/${animationMatchingCards[1]}.jpg`} alt='' />
             ) : null}
           </BackImg>
         </CardDiv>

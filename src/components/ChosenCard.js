@@ -1,21 +1,13 @@
 import React from 'react';
-// import socket from '../socketConfig';
 
 import styled from 'styled-components';
 
 const ChosenCard = ({ nickName, card, size, onClick, iscardCzar }) => {
-  // const onClick = (e) => {
-  //   e.preventDefault();
-  //   // console.log(userInput);
-  //   socket.emit('card-chosen-by-player', card);
-  // };
-  // console.log(card);
-
   return (
     <CardDiv className='text-center' style={{ width: `${size}px` }}>
       <h4>{nickName}</h4>
       <FrontImg>
-        {card ? <img src={`/media/${card.frontImg}.png`} alt='' /> : null}
+        {card ? <img src={`/media/${card.frontImg}.jpg`} alt='' /> : null}
       </FrontImg>
       {iscardCzar ? (
         <button
@@ -31,19 +23,9 @@ const ChosenCard = ({ nickName, card, size, onClick, iscardCzar }) => {
 };
 
 const CardDiv = styled.div`
-  // background: url('/media/resp1.png');
-  // background-size: contain;
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // width: 150px;
-  // margin: 0.5em;
-
-  // copy part
   margin: 10px;
   position: relative;
   transition: 0.3s ease all;
-
-  // End copy
 
   animation: fadeIn cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
   // -webkit-animation: fadeIn ease 0.5s;

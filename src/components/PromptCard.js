@@ -25,7 +25,7 @@ function PromptCard({ card }) {
   return (
     <CardDiv className='bouncing'>
       <FrontImg>
-        <img src={`/media/${card.frontImg}.png`} alt='' />
+        <img src={`/media/${card.frontImg}.jpg`} alt='' />
       </FrontImg>
     </CardDiv>
   );

@@ -104,7 +104,7 @@ function Table({
 
       <RespCardsContainer className='row'>
         {cardsArr.map((card, i) => (
-          <Card key={i} card={card} size={150} onClick={onClick} />
+          <Card key={i} card={card} size={160} onClick={onClick} />
         ))}
       </RespCardsContainer>
 

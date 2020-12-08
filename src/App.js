@@ -1,13 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import Landing from './Landing';
-// import Game from './Game';
-// import CreateADeck from './CreateADeck';
-// import EditADeck from './EditADeck';
-// import Admin from './Admin';
-// import PlayerInfo from './PlayerInfo';
-// import EmptyPage from './EmptyPage';
-// import PublicGames from './PublicGames';
-// import HowToPlay from './HowToPlay';
 import { Router, Route, Switch } from 'react-router-dom';
 
 import history from './history';
@@ -20,7 +11,6 @@ import LandingPage from './components/LandingPage';
 import HowToPlayPage from './components/HowToPlayPage';
 import Zoophobia from './components/Zoophobia';
 import GameScore from './components/GameScore';
-import ChatComponent from './components/ChatComponent';
 
 // import './App.css';
 // import ReactGA from 'react-ga';
@@ -68,9 +58,8 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route exact path='/how-to-play' component={HowToPlayPage} />
-        <Route exact path='/chat'>
-          <ChatComponent />
-        </Route>
+        <Route exact path='/about' component={HowToPlayPage} />
+
         <Route path='/game/create' component={CreateGame} />
         <Route path='/game/join' component={JoinGame} />
         <Route

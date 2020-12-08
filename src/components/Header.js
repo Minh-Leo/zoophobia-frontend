@@ -33,7 +33,7 @@ const Header = ({ player }) => {
             <Link className='nav-item nav-link active' to='/'>
               Home
             </Link>
-            <Link className='nav-item nav-link' to='#'>
+            <Link className='nav-item nav-link' to='/how-to-play'>
               How To play?
             </Link>
             <Link className='nav-item nav-link' to='#'>
