@@ -25,6 +25,7 @@ function Table({
 
   // const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.25 });
   const [cardFlip] = useSound('/media/sfx/cardFlip1.wav', { volume: 0.25 });
+  const [cardCheck] = useSound('/media/sfx/sfxmagic.wav', { volume: 0.15 });
 
   const onClick = (card) => {
     cardFlip();
@@ -32,6 +33,7 @@ function Table({
   };
 
   const onFinalChosen = (card) => {
+    cardCheck();
     socket.emit('final-chosen-card', { card, playerData });
   };
 

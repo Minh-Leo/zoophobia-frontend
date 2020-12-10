@@ -24,7 +24,7 @@ const JoinGame = (props) => {
   };
 
   const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.25 });
-  const [clickSound] = useSound('/media/sfx/btnSound.mp3', { volume: 0.15 });
+  const [clickSound] = useSound('/media/sfx/btnSound.mp3', { volume: 0.1 });
 
   return (
     <>

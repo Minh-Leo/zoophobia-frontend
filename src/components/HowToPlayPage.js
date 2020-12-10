@@ -16,12 +16,12 @@ const HowToPlayPage = () => {
         <div className='col-md-12 text-center'>
           <img
             className='bouncing'
-            src='/media/page/Howtoplay1_website.jpg'
+            src='/media/page/Howtoplay1_website.png'
             alt=''
           />
           <img
             className='bouncing'
-            src='/media/page/Howtoplay2_website.jpg'
+            src='/media/page/Howtoplay2_website.png'
             alt=''
           />
         </div>

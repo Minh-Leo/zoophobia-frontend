@@ -1,5 +1,4 @@
 import React from 'react';
-// import useSound from 'use-sound';
 
 import styled from 'styled-components';
 
@@ -11,8 +10,6 @@ const CardMatchingScreen = ({
   animationMatchingCards,
   onRoundFinished,
 }) => {
-  // const [cardCheck] = useSound('/media/sfx/sfxmagic.wav', { volume: 0.25 });
-
   let matched;
   if (
     animationMatchingCards[1].replace('resp-', '') ===

@@ -5,7 +5,7 @@ import useSound from 'use-sound';
 import styled from 'styled-components';
 
 const Card = ({ card, size, onClick }) => {
-  const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.1 });
+  const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.25 });
 
   return (
     <CardDiv

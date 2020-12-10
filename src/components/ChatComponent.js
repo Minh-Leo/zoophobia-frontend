@@ -35,6 +35,12 @@ const ChatComponent = ({ player }) => {
     socket.emit('send message', messageObject);
   }
 
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      sendMessage(e);
+    }
+  }
+
   function handleChange(e) {
     setMessage(e.target.value);
   }
@@ -64,6 +70,7 @@ const ChatComponent = ({ player }) => {
           value={message}
           onChange={handleChange}
           placeholder='Say something...'
+          onKeyPress={handleKeyPress}
         />
         <Button>Send</Button>
       </Form>
@@ -143,21 +150,23 @@ const MyRow = styled.div`
 
 const User = styled.div`
   width: 10%;
-  font-size: 12px;
-  color: var(--dark);
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--secondary);
   overflow: hidden;
 `;
 
 const MyMessage = styled.div`
-  width: 45%;
+  width: 65%;
   background-color: var(--light);
   color: var(--primary);
-  padding: 10px;
+  padding: 5px;
   margin-right: 5px;
   text-align: center;
-  border-top-right-radius: 10%;
-  border-bottom-right-radius: 10%;
-  border: 1px solid var(--primary);
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 25%;
+  border-bottom-left-radius: 25%;
+  border: 1px dashed var(--primary);
 `;
 
 const PartnerRow = styled(MyRow)`
@@ -165,15 +174,16 @@ const PartnerRow = styled(MyRow)`
 `;
 
 const PartnerMessage = styled.div`
-  width: 45%;
+  width: 65%;
   background-color: var(--gray);
   color: var(--warning);
   border: 1px solid var(--warning);
-  padding: 10px;
+  padding: 5px;
   margin-left: 5px;
   text-align: center;
-  border-top-left-radius: 10%;
-  border-bottom-left-radius: 10%;
+  border-top-left-radius: 25%;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
 `;
 
 export default ChatComponent;

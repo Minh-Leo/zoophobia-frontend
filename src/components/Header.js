@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import history from './history';
 // import useSound from 'use-sound';
-
 // import socket from '../socketConfig';
 
 import styled from 'styled-components';
 
-const Header = ({ player }) => {
-  // useEffect(() => {}, []);
+const Header = ({ player, gameID }) => {
   // const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.6 });
   // const [clickSound] = useSound('/media/sfx/btnSound.mp3', { volume: 0.1 });
   console.log(window.location.pathname);
@@ -16,7 +15,9 @@ const Header = ({ player }) => {
     <div className='row mx-0'>
       <div className='col-8'>
         {window.location.pathname !== '/' ? (
-          <Logo className='logo' src={`/media/logo-sm.png`} alt='' />
+          <Link to='/'>
+            <Logo className='logo' src={`/media/logo-sm.png`} alt='' />
+          </Link>
         ) : null}
       </div>
 
@@ -31,15 +32,23 @@ const Header = ({ player }) => {
         ) : null}
         <div className='' id=''>
           <div className='navbar-nav'>
-            <Link className='nav-item nav-link active' to='/'>
-              Home
-            </Link>
-            <Link className='nav-item nav-link' to='/how-to-play'>
-              How To play?
-            </Link>
-            <Link className='nav-item nav-link' to='/about'>
-              About Us
-            </Link>
+            {gameID ? (
+              <Link className='nav-item nav-link active' to={`/game/${gameID}`}>
+                Back to game
+              </Link>
+            ) : (
+              <>
+                <Link className='nav-item nav-link active' to='/'>
+                  Home Page
+                </Link>
+                <Link className='nav-item nav-link' to='/how-to-play'>
+                  How To play?
+                </Link>
+                <Link className='nav-item nav-link' to='/about'>
+                  About Us
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </NavBar>
@@ -50,6 +59,9 @@ const Header = ({ player }) => {
 const Logo = styled.img`
   position: relative;
   left: 50%;
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 const PlayerStatus = styled.h4`
   font-size: 20px;

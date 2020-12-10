@@ -16,12 +16,12 @@ const AboutPage = () => {
         <div className='col-md-12 text-center'>
           <img
             className='bouncing'
-            src='/media/page/CreatorsNote_website.jpg'
+            src='/media/page/CreatorsNote_website.png'
             alt=''
           />
           <img
             className='bouncing'
-            src='/media/page/TheTeam_website.jpg'
+            src='/media/page/TheTeam_website.png'
             alt=''
           />
         </div>
