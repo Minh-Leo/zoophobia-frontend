@@ -59,8 +59,8 @@ const ChatComponent = ({ player }) => {
           }
           return (
             <PartnerRow key={index}>
-              <User>{message.player}</User>
               <PartnerMessage>{message.body}</PartnerMessage>
+              <User>{message.player}</User>
             </PartnerRow>
           );
         })}
@@ -71,8 +71,9 @@ const ChatComponent = ({ player }) => {
           onChange={handleChange}
           placeholder='Say something...'
           onKeyPress={handleKeyPress}
+          required
         />
-        <Button>Send</Button>
+        <Button>SEND MESSAGE</Button>
       </Form>
     </ChatBox>
   );
@@ -131,6 +132,8 @@ const Button = styled.button`
   border-radius: 10px;
   color: var(--warning);
   font-size: 17px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 3px -2px,
+    rgba(0, 0, 0, 0.24) 0px 3px 4px 0px, rgba(0, 0, 0, 0.22) 0px 1px 8px 0px;
 
   &:hover {
     background-color: #222;
@@ -152,20 +155,21 @@ const User = styled.div`
   width: 10%;
   font-size: 16px;
   font-weight: bold;
-  color: var(--secondary);
+  color: var(--danger);
+  margin: 0 5px;
   overflow: hidden;
 `;
 
 const MyMessage = styled.div`
-  width: 65%;
+  width: 80%;
   background-color: var(--light);
   color: var(--primary);
   padding: 5px;
   margin-right: 5px;
   text-align: center;
-  border-top-right-radius: 25%;
-  border-bottom-right-radius: 25%;
-  border-bottom-left-radius: 25%;
+  border-top-right-radius: 30%;
+  border-bottom-right-radius: 20%;
+  border-bottom-left-radius: 30%;
   border: 1px dashed var(--primary);
 `;
 
@@ -174,16 +178,16 @@ const PartnerRow = styled(MyRow)`
 `;
 
 const PartnerMessage = styled.div`
-  width: 65%;
-  background-color: var(--gray);
+  width: 80%;
+  background-color: var(--gray-dark);
   color: var(--warning);
-  border: 1px solid var(--warning);
+  border: 1px dotted var(--warning);
   padding: 5px;
   margin-left: 5px;
   text-align: center;
-  border-top-left-radius: 25%;
-  border-bottom-left-radius: 25%;
-  border-bottom-right-radius: 25%;
+  border-top-left-radius: 30%;
+  border-bottom-left-radius: 20%;
+  border-bottom-right-radius: 30%;
 `;
 
 export default ChatComponent;
