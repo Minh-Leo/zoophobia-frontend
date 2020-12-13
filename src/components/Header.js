@@ -1,21 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import history from './history';
+import history from '../history';
 // import useSound from 'use-sound';
 // import socket from '../socketConfig';
+
+import Player from './Player';
 
 import styled from 'styled-components';
 
 const Header = ({ player, gameID }) => {
   // const [hoverSound] = useSound('/media/sfx/btnLight.wav', { volume: 0.6 });
   // const [clickSound] = useSound('/media/sfx/btnSound.mp3', { volume: 0.1 });
+
+  const onAlert = (e) => {
+    e.preventDefault();
+    let ans = window.confirm(
+      'Are you sure you want to go back to Home? You will lose your current game progess'
+    );
+    if (ans === false) {
+      return false;
+    } else {
+      history.push('/');
+    }
+  };
+
   console.log(window.location.pathname);
 
   return (
     <div className='row mx-0'>
       <div className='col-8'>
         {window.location.pathname !== '/' ? (
-          <Link to='/'>
+          <Link to={gameID ? `/game/${gameID}` : '/'}>
             <Logo className='logo' src={`/media/logo-sm.png`} alt='' />
           </Link>
         ) : null}
@@ -33,9 +48,16 @@ const Header = ({ player, gameID }) => {
         <div className='' id=''>
           <div className='navbar-nav'>
             {gameID ? (
-              <Link className='nav-item nav-link active' to={`/game/${gameID}`}>
-                Back to game
-              </Link>
+              <>
+                <Link
+                  className='nav-item nav-link active'
+                  onClick={onAlert}
+                  to={`/`}
+                >
+                  Back to Home
+                </Link>
+                <Player />
+              </>
             ) : (
               <>
                 <Link className='nav-item nav-link active' to='/'>
@@ -47,6 +69,7 @@ const Header = ({ player, gameID }) => {
                 <Link className='nav-item nav-link' to='/about'>
                   About Us
                 </Link>
+                <Player />
               </>
             )}
           </div>

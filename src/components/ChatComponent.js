@@ -155,7 +155,7 @@ const User = styled.div`
   width: 10%;
   font-size: 16px;
   font-weight: bold;
-  color: var(--danger);
+  color: var(--gray-dark);
   margin: 0 5px;
   overflow: hidden;
 `;

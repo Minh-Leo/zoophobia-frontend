@@ -18,10 +18,10 @@ function GameScore({ gameState }) {
       <Page>
         <Header player={player}></Header>
 
-        <h1 className='text-center white m-5'>GAME SCORE</h1>
+        <h1 className='text-center stroke bouncing m-4'>GAME SCORE</h1>
         <PlayersScore className=''>
           {players.map((player, i) => (
-            <div key={i} className='card m-4' style={{ width: '18rem' }}>
+            <div key={i} className='card fade m-4' style={{ width: '18rem' }}>
               {/* <img className='card-img-top' src='...' alt='Card cap' /> */}
               <div
                 className='card-body'
@@ -31,7 +31,7 @@ function GameScore({ gameState }) {
                 }}
               >
                 <h3 className='card-title'>Player: {player.nickName}</h3>
-                <p className='card-text'>more info...</p>
+                {/* <p className='card-text'>more info...</p> */}
               </div>
               <ul className='list-group list-group-flush'>
                 <li className='list-group-item'>
@@ -40,12 +40,29 @@ function GameScore({ gameState }) {
                 <li className='list-group-item'>
                   Total matching combinations: {player.winningCards.length}
                 </li>
-                <li className='list-group-item'>
+                {/* <li className='list-group-item'>
                   Total unmatched combinations: {player.unmatchCards.length}
-                </li>
+                </li> */}
               </ul>
               <div className='card-body'>
-                <button className='card-link'>Yayyy</button>
+                {/* <button className='card-link'>Yayyy</button> */}
+                <CardsContainer>
+                  <h4>Matching Pairs</h4>
+                  {player.winningCards.map((cards) => (
+                    <>
+                      <img
+                        src={`/media/${cards[1].frontImg}.jpg`}
+                        alt=''
+                        style={{ width: '100px' }}
+                      ></img>
+                      <img
+                        src={`/media/${cards[0].frontImg}.jpg`}
+                        alt=''
+                        style={{ width: '100px' }}
+                      ></img>
+                    </>
+                  ))}
+                </CardsContainer>
               </div>
             </div>
           ))}
@@ -68,6 +85,10 @@ const PlayersScore = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+`;
+const CardsContainer = styled.div`
+  height: 500px;
+  overflow: scroll;
 `;
 
 export default GameScore;
