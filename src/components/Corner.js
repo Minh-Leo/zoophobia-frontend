@@ -20,7 +20,8 @@ export const CornerTopLeft = styled.div`
   width: 30vw;
   height: 400px;
   position: fixed;
-  top: -5px;
+  // top: -5px;
+  top: -15px;
   left: -5px;
   // transition: 0.4s ease all;
   // // -webkit-animation: bounce 1.2s 1 forwards;
@@ -34,11 +35,14 @@ export const CornerRight = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom right;
-  width: 35vw;
+  // width: 35vw;
+  width: 30vw;
   min-height: 30vh;
-  height: 600px;
+  // height: 600px;
+  height: 500px;
   position: fixed;
-  bottom: -10px;
+  bottom: -50px;
+  // bottom: -10px;
   right: -15px;
   // transition: 0.4s ease all;
   // // -webkit-animation: bounce 1.2s 1 forwards;

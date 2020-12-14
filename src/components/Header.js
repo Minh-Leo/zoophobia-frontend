@@ -24,6 +24,13 @@ const Header = ({ player, gameID }) => {
     }
   };
 
+  const mouseEnter = () => {
+    document.getElementById('Modal').style.display = 'flex';
+  };
+  const mouseLeave = () => {
+    document.getElementById('Modal').style.display = 'none';
+  };
+
   console.log(window.location.pathname);
 
   return (
@@ -56,6 +63,17 @@ const Header = ({ player, gameID }) => {
                 >
                   Back to Home
                 </Link>
+                <TutoLink
+                  className='btn btn-outline-info'
+                  onMouseEnter={mouseEnter}
+                  onMouseLeave={mouseLeave}
+                >
+                  Games Rule
+                </TutoLink>
+                <ModalScreen id='Modal'>
+                  <Tutoone></Tutoone>
+                  <Tutotwo></Tutotwo>
+                </ModalScreen>
                 <Player />
               </>
             ) : (
@@ -116,6 +134,42 @@ const NavBar = styled.nav`
       transform: scale(1.1) translateY(-2px);
     }
   }
+`;
+
+const TutoLink = styled.div`
+  margin-left: 20px;
+  border: none;
+  text-transform: uppercase;
+`;
+const ModalScreen = styled.div`
+  width: 100vw;
+  height: 90vh;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  background: #000000bb;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+`;
+const Tutoone = styled.div`
+  width: 650px;
+  height: 700px;
+  background: url('/media/page/Howtoplay1_website.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  animation: fadeIn cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
+`;
+const Tutotwo = styled.div`
+  width: 650px;
+  height: 700px;
+  background: url('/media/page/Howtoplay2_website.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  animation: fadeIn cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
 `;
 
 export default Header;

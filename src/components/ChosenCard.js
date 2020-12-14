@@ -35,6 +35,7 @@ const CardDiv = styled.div`
   // -ms-animation: fadeIn ease 0.5s;
 
   &:hover {
+    transform: scale(1.1);
     z-index: 10;
   }
 `;

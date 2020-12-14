@@ -27,6 +27,20 @@ const CardMatchingScreen = ({
       {animationMatchingCards[0] !== '' ? (
         <h1 style={{ color: '#fff' }}>{animationMatchingCards[0]}'s card</h1>
       ) : null}
+      {cardCzar ? (
+        <button
+          type='button'
+          onClick={onRoundFinished}
+          className='btn btn-warning btn-lg mt-3 shadow-1'
+        >
+          Continue to{' '}
+          {promptNo === 1
+            ? 'Score Board'
+            : promptNo === 2
+            ? 'Final Round'
+            : `Round ${promptNo - 1}`}
+        </button>
+      ) : null}
       <div className='flex-horizontal'>
         <CardDiv className='text-center bouncing'>
           <BackImg>
@@ -54,20 +68,6 @@ const CardMatchingScreen = ({
           have point, next time then!
         </Message>
       )}
-      {cardCzar ? (
-        <button
-          type='button'
-          onClick={onRoundFinished}
-          className='btn btn-warning btn-lg mt-3 shadow-1'
-        >
-          Continue to{' '}
-          {promptNo === 1
-            ? 'Score Board'
-            : promptNo === 2
-            ? 'Final Round'
-            : `Round ${promptNo - 1}`}
-        </button>
-      ) : null}
     </ModalScreen>
   );
 };
