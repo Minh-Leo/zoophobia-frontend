@@ -137,9 +137,11 @@ const NavBar = styled.nav`
 `;
 
 const TutoLink = styled.div`
-  margin-left: 20px;
+  margin-left: 30px;
   border: none;
   text-transform: uppercase;
+  font-family: 'Animals';
+  color: #66e4f4;
 `;
 const ModalScreen = styled.div`
   width: 100vw;

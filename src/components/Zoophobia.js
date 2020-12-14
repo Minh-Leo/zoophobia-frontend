@@ -43,11 +43,11 @@ function Zoophobia({ gameState }) {
             <CountDown />
             <StartBtn player={player} gameID={_id} />
             <DisplayGameCode gameID={_id} />
-            <h3 className='stroke text-center'>
+            <h4 className='text-center'>
               Please wait for all others players to join in before clicking
               Start game! <br />
               They won't be able to join in with you if you start first.
-            </h3>
+            </h4>
           </WaitingScreen>
           <CornerTopLeft />
           <CornerRight />

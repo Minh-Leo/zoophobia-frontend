@@ -13,12 +13,23 @@ function GameScore({ gameState }) {
 
   const player = findPlayer(players);
 
+  const total = players
+    .map((player) => player.points)
+    .reduce((total, num) => total + num, 0);
+
+  console.log(total);
+
   return (
     <>
       <Page>
         <Header player={player}></Header>
 
         <h1 className='text-center stroke bouncing m-4'>GAME SCORE</h1>
+        {total >= 7 ? (
+          <h3 className='text-center stroke bouncing'>
+            Congratulation, team's total points: {total}
+          </h3>
+        ) : null}
         <PlayersScore className=''>
           {players.map((player, i) => (
             <div key={i} className='card fade m-4' style={{ width: '18rem' }}>
