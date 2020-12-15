@@ -27,9 +27,15 @@ function GameScore({ gameState }) {
         <h1 className='text-center stroke bouncing m-4'>GAME SCORE</h1>
         {total >= 7 ? (
           <h3 className='text-center stroke bouncing'>
-            Congratulation, team's total points: {total}
+            Congratulations, your team has won!
+            <br /> Total points: {total}
           </h3>
-        ) : null}
+        ) : (
+          <h3 className='text-center stroke bouncing'>
+            Unfortunately your team didn't win. Better luck next time!
+            <br /> Total points: {total}
+          </h3>
+        )}
         <PlayersScore className=''>
           {players.map((player, i) => (
             <div key={i} className='card fade m-4' style={{ width: '18rem' }}>

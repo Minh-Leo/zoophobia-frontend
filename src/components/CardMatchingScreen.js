@@ -59,13 +59,13 @@ const CardMatchingScreen = ({
       </div>
       {matched ? (
         <Message>
-          Hooray, we have a matching pair, {animationMatchingCards[0]} got 1
-          point into their basket
+          Hooray, that was a great response! Your team gets 1 point!
+          {/* {animationMatchingCards[0]} */}
         </Message>
       ) : (
         <Message>
-          Oops, cards item are not matching, {animationMatchingCards[0]} don't
-          have point, next time then!
+          Oops, the response you chose doesn’t match the prompt! Better luck
+          next time!
         </Message>
       )}
     </ModalScreen>

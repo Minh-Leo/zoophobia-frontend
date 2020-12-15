@@ -68,7 +68,7 @@ const Header = ({ player, gameID }) => {
                   onMouseEnter={mouseEnter}
                   onMouseLeave={mouseLeave}
                 >
-                  Games Rule
+                  Game Rules
                 </TutoLink>
                 <ModalScreen id='Modal'>
                   <Tutoone></Tutoone>
