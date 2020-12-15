@@ -38,7 +38,7 @@ const CardMatchingScreen = ({
             ? 'Score Board'
             : promptNo === 2
             ? 'Final Round'
-            : `Round ${promptNo - 1}`}
+            : `Round ${13 - promptNo}`}
         </button>
       ) : null}
       <div className='flex-horizontal'>

@@ -12,7 +12,6 @@ const DisplayGameCode = ({ gameID, players }) => {
 
   return (
     <div className='row my-5 text-center'>
-      <h2>Number of players already joined in: {players.length}</h2>
       <div className='col-md-12'>
         <h4>Send this code to your friends to join</h4>
         <div className='input-group mb-3'>
@@ -40,6 +39,9 @@ const DisplayGameCode = ({ gameID, players }) => {
         ) : (
           <div className='alert alert-info'>Game Code is ready</div>
         )}
+        <h2 className='stroke' style={{ width: '100%' }}>
+          Number of players already joined in: {players.length}
+        </h2>
       </div>
     </div>
   );
