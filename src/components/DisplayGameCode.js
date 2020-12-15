@@ -12,8 +12,7 @@ const DisplayGameCode = ({ gameID, players }) => {
 
   return (
     <div className='row my-5 text-center'>
-      <h2>Max players allowed: 6 people</h2>
-      <h1>Number of players already joined in: {players.length}</h1>
+      <h2>Number of players already joined in: {players.length}</h2>
       <div className='col-md-12'>
         <h4>Send this code to your friends to join</h4>
         <div className='input-group mb-3'>
