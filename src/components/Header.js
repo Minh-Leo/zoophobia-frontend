@@ -87,7 +87,7 @@ const Header = ({ player, gameID }) => {
                 <Link className='nav-item nav-link' to='/about'>
                   About Us
                 </Link>
-                <Player />
+                {/* <Player /> */}
               </>
             )}
           </div>

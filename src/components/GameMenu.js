@@ -13,12 +13,12 @@ const GameMenu = (props) => {
         type='button'
         onClick={() => {
           clickSound();
-          history.push('/how-to-play');
+          history.push('/for-teachers');
         }}
         onMouseEnter={() => hoverSound()}
         className='btn btn-warning btn-lg mr-3 shadow-1'
       >
-        How to play
+        For Teachers
       </button>
       <button
         type='button'

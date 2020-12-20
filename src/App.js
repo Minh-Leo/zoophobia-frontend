@@ -10,6 +10,7 @@ import JoinGame from './components/JoinGame';
 import LandingPage from './components/LandingPage';
 import HowToPlayPage from './components/HowToPlayPage';
 import AboutPage from './components/AboutPage';
+import ForTeachersPage from './components/ForTeachersPage';
 import Zoophobia from './components/Zoophobia';
 import GameScore from './components/GameScore';
 
@@ -59,6 +60,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={LandingPage} />
         <Route exact path='/how-to-play' component={HowToPlayPage} />
+        <Route exact path='/for-teachers' component={ForTeachersPage} />
         <Route exact path='/about' component={AboutPage} />
 
         <Route path='/game/create' component={CreateGame} />

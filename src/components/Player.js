@@ -19,9 +19,23 @@ const Play = ({ play }) => {
 };
 
 const Player = () => {
+  // var sound = new Howl({
+  // src: ['sound.webm', 'sound.mp3', 'sound.wav'],
+
+  // loop: true,
+  // volume: 0.5,
+  // onend: function() {
+  //   console.log('Finished!');
+  // }
+  // });
   const [play, { stop, isPlaying }] = useSound(
     '/media/sfx/somewhereinafrica.wav'
   );
+  // const playLoop = () => {
+  //   if (!isPlaying) {
+  //     play();
+  //   }
+  // }
   return (
     <div className='player'>
       {isPlaying ? <Pause stop={stop} /> : <Play play={play} />}
