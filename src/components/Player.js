@@ -29,7 +29,7 @@ const Player = () => {
   // }
   // });
   const [play, { stop, isPlaying }] = useSound(
-    '/media/sfx/somewhereinafrica.wav'
+    '/media/sfx/somewhereinafrica-2min.mp3'
   );
   // const playLoop = () => {
   //   if (!isPlaying) {
