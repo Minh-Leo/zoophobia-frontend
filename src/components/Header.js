@@ -71,8 +71,51 @@ const Header = ({ player, gameID }) => {
                   Game Rules
                 </TutoLink>
                 <ModalScreen id='Modal'>
-                  <Tutoone></Tutoone>
-                  <Tutotwo></Tutotwo>
+                  {/* <Tutoone></Tutoone>
+                  <Tutotwo></Tutotwo> */}
+                  <Description className='shadow-1 bouncing'>
+                    <h1 className='stroke'>Starting the game</h1>
+                    <p>
+                      1. Once you have organised your friends to play Zoophobia
+                      online together, choose one person to be a "Game Creator".{' '}
+                      <br />
+                      2. As the Game Creator, you click "Create Game" on the
+                      Home page, choose a nickname and send the game code to the
+                      other players. Don’t click "Start game" until all players
+                      have joined! <br />
+                      3. As a player, you click "Join Game" on the Home page,
+                      paste the game code into the ‘Enter Game ID’ box and
+                      choose a nickname. <br />
+                      4. Once all players have joined the game, the Game Creator
+                      can click "Start Game".
+                    </p>
+                    <h1 className='stroke'>Playing the game</h1>
+                    <p>
+                      1. Players are each dealt a random hand of Response cards
+                      (cards at the bottom of the screen). <br />
+                      2. A total of 12 Prompt cards (the card at the top left of
+                      the screen) will appear throughout the game. Players must
+                      read the scenarios on each Prompt card and nominate 1
+                      Response card from their hand that best suits. This is
+                      done by clicking on the card, and you can also change your
+                      selected response by clicking on another card in your
+                      hand. <br />
+                      3. Once all players have nominated a Response card,
+                      players can use the chat function (and/or other tele- or
+                      video-conferencing) to discuss which nominated Response
+                      card they wish to submit as a team. Remember, this is a
+                      cooperative game so work together to find the best
+                      response! <br />
+                      4. When it’s your turn (this will be written on the top
+                      right of the screen), you must click "Choose" on the card
+                      that your team decides is the best response. <br />
+                      5. Correct responses result in a matching grocery item (1
+                      point) that will show up in players’ shopping carts.{' '}
+                      <br />
+                      6. If the team creates 7 grocery matches by the end of the
+                      game, you all win!
+                    </p>
+                  </Description>
                 </ModalScreen>
                 <Player />
               </>
@@ -155,23 +198,33 @@ const ModalScreen = styled.div`
   align-items: center;
   z-index: 99;
 `;
-const Tutoone = styled.div`
-  width: 650px;
-  height: 700px;
-  background: url('/media/page/Howtoplay1_website.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: relative;
-  animation: fadeIn cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
+const Description = styled.div`
+  width: 70%;
+  font-size: 20px;
+  margin-top: 2em;
+  padding: 1em 2em;
+  color: #3c3c3c;
+  text-align: left;
+  background: #ffc107dd;
+  border-radius: 30px;
 `;
-const Tutotwo = styled.div`
-  width: 650px;
-  height: 700px;
-  background: url('/media/page/Howtoplay2_website.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: relative;
-  animation: fadeIn cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
-`;
+// const Tutoone = styled.div`
+//   width: 650px;
+//   height: 700px;
+//   background: url('/media/page/Howtoplay1_website.png');
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   position: relative;
+//   animation: fadeIn cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
+// `;
+// const Tutotwo = styled.div`
+//   width: 650px;
+//   height: 700px;
+//   background: url('/media/page/Howtoplay2_website.png');
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   position: relative;
+//   animation: fadeIn cubic-bezier(0.28, 0.84, 0.42, 1) 0.5s;
+// `;
 
 export default Header;

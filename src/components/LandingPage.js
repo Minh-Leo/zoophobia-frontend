@@ -24,15 +24,15 @@ function LandingPage() {
         <Description className='shadow-1'>
           <p>
             In ZOOPHOBIA you are an animal who needs to do your grocery
-            shopping.
+            shopping. You love going to the Mega Mart and seeing creatures of
+            all species and sizes in one place! But sometimes animals get
+            bullied for their species, which can make it hard for them to finish
+            shopping…
             <br />
-            You love going to the Mega Mart and seeing creatures of all species
-            and sizes in one place! But sometimes animals get bullied for their
-            species, which can make it hard for them to finish shopping…Your
-            mission is to work together as a team and collect as many groceries
-            as you can! Do this by reading about tricky situations in the Mega
-            Mart and voting on the best responses to keep bullied animals safe.
-            Have fun and good luck!
+            Your mission is to work together as a team and collect as many
+            groceries as you can! Do this by reading about tricky situations in
+            the Mega Mart and voting on the best responses to keep bullied
+            animals safe. Have fun and good luck!
           </p>
           <h5 style={{ color: '#d34a88' }}>
             Suitable for up to 6 players // ages 9+ // Website best viewed Full
