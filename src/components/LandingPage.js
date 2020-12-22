@@ -40,6 +40,18 @@ function LandingPage() {
             best experience is: full HD 1920x1080
           </h5>
         </Description>
+        <SponsorsLogo>
+          <img
+            src='/media/melbourne-logo.png'
+            alt=''
+            style={{ width: '35%' }}
+          />
+          <img
+            src='/media/aca-logo.png'
+            alt=''
+            style={{ width: '60%', marginLeft: '3em' }}
+          />
+        </SponsorsLogo>
       </div>
 
       <CornerTopLeft />
@@ -53,7 +65,7 @@ const Landing = styled.div`
   position: relative;
 
   & .text-center {
-    height: 60vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -64,6 +76,13 @@ const Landing = styled.div`
 const BigLogo = styled.img`
   width: 60vw;
   // max-height: 30vh;
+`;
+const SponsorsLogo = styled.div`
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
 `;
 
 const Description = styled.div`
